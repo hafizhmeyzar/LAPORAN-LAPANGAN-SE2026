@@ -1539,22 +1539,26 @@
     try {
       updateOverlay('Mengirim data ke server…', 60);
 
-      // ── Kirim payload JSON sebagai query param ?data=... ──────────────────
-      // Cara paling kompatibel dengan GAS Web App:
-      // GAS membaca e.parameter.data baik dari GET maupun POST + query string.
-      // Tidak ada preflight CORS, tidak ada masalah Content-Type.
-      const jsonStr   = JSON.stringify(payload);
-      const targetURL = GAS_URL + '?data=' + encodeURIComponent(jsonStr);
+      // ── Strategi pengiriman ke GAS Web App ────────────────────────────
+      // Foto base64 terlalu besar untuk query string (URL limit ~2KB).
+      // Solusi: pisahkan - metadata via GET param, foto via POST body terpisah.
+      //
+      // CARA YANG DIPAKAI: POST dengan Content-Type text/plain
+      // GAS membaca body mentah via e.postData.contents (tidak trigger preflight
+      // karena text/plain adalah "simple request" per CORS spec).
+      const jsonStr = JSON.stringify(payload);
 
-      const res = await fetch(targetURL, {
+      const res = await fetch(GAS_URL, {
         method  : 'POST',
+        body    : jsonStr,
+        headers : { 'Content-Type': 'text/plain;charset=UTF-8' },
         redirect: 'follow',
+        mode    : 'cors',
       });
 
       updateOverlay('Menyimpan ke Spreadsheet…', 85);
       const text = await res.text();
 
-      // Parse response – ambil JSON pertama yang ditemukan di response text
       let json;
       try {
         const match = text.match(/\{[\s\S]*\}/);
@@ -1562,7 +1566,7 @@
       } catch(_) {
         json = res.ok
           ? { status:'success', message:'Data berhasil disimpan.' }
-          : { status:'error',   message:'Gagal parse response. Cek log Apps Script.' };
+          : { status:'error',   message:'Gagal parse response server.' };
       }
 
       updateOverlay('Selesai!', 100);
