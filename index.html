@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#E8500A" />
+  <title>Form Lapangan SE2026 – BPS</title>
+
+  <!-- TomSelect for searchable dropdowns -->
+  <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       RESET & BASE
+    ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:    #E8500A;
+      --orange-dk: #C4400A;
+      --orange-lt: #FFF0E8;
+      --gray-50:   #F8F8F8;
+      --gray-100:  #F0F0F0;
+      --gray-200:  #E0E0E0;
+      --gray-400:  #9E9E9E;
+      --gray-600:  #616161;
+      --gray-800:  #1E1E1E;
+      --white:     #FFFFFF;
+      --success:   #2E7D32;
+      --success-lt:#E8F5E9;
+      --error:     #C62828;
+      --error-lt:  #FFEBEE;
+      --radius:    12px;
+      --radius-sm: 8px;
+      --shadow:    0 2px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+      --transition: 0.2s ease;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+      padding-bottom: 40px;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+    .app-header {
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dk) 100%);
+      color: var(--white);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 16px rgba(232,80,10,0.35);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+    }
+
+    .header-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #000;
+      padding: 2px;
+    }
+    .header-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .header-text h1 {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      line-height: 1.2;
+    }
+
+    .header-text p {
+      font-size: 11.5px;
+      opacity: 0.88;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    /* Date strip */
+    .date-strip {
+      background: rgba(0,0,0,0.15);
+      padding: 7px 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    /* =========================================================
+       CONTAINER
+    ========================================================= */
+    .container {
+      max-width: 540px;
+      margin: 0 auto;
+      padding: 16px 14px;
+    }
+
+    /* =========================================================
+       SECTION CARD
+    ========================================================= */
+    .form-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 16px;
+      background: var(--gray-50);
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    .card-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--orange-lt);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gray-800);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .card-body { padding: 16px; }
+
+    /* =========================================================
+       FORM ELEMENTS
+    ========================================================= */
+    .form-group { margin-bottom: 16px; }
+    .form-group:last-child { margin-bottom: 0; }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--gray-600);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 7px;
+    }
+
+    .form-label .req {
+      color: var(--orange);
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--gray-800);
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232,80,10,0.10);
+    }
+
+    .form-input.error {
+      border-color: var(--error);
+      box-shadow: 0 0 0 3px rgba(198,40,40,0.08);
+    }
+
+    .form-hint {
+      font-size: 11.5px;
+      color: var(--gray-400);
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .form-error {
+      font-size: 11.5px;
+      color: var(--error);
+      margin-top: 5px;
+      display: none;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+
+    .form-error.visible { display: flex; }
+
+    /* =========================================================
+       TOM SELECT CUSTOM STYLES
+    ========================================================= */
+    .ts-wrapper {
+      width: 100%;
+    }
+
+    .ts-control {
+      border: 1.5px solid var(--gray-200) !important;
+      border-radius: var(--radius-sm) !important;
+      padding: 10px 14px !important;
+      font-size: 15px !important;
+      font-family: inherit !important;
+      font-weight: 500 !important;
+      min-height: 48px !important;
+      box-shadow: none !important;
+      background: var(--white) !important;
+      transition: border-color var(--transition), box-shadow var(--transition) !important;
+    }
+
+    .ts-wrapper.focus .ts-control {
+      border-color: var(--orange) !important;
+      box-shadow: 0 0 0 3px rgba(232,80,10,0.10) !important;
+    }
+
+    .ts-wrapper.error .ts-control {
+      border-color: var(--error) !important;
+    }
+
+    .ts-dropdown {
+      border-radius: var(--radius-sm) !important;
+      border: 1.5px solid var(--gray-200) !important;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18) !important;
+      font-family: inherit !important;
+      font-size: 15px !important;
+      overflow: visible !important;
+      z-index: 9999 !important;
+      position: absolute !important;
+      max-height: 260px !important;
+    }
+
+    .ts-dropdown-content {
+      max-height: 260px !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      overscroll-behavior: contain !important;
+    }
+
+    .ts-wrapper {
+      position: relative !important;
+    }
+
+    .ts-dropdown .option {
+      padding: 11px 14px !important;
+      font-weight: 500 !important;
+    }
+
+    .ts-dropdown .option.active,
+    .ts-dropdown .option:hover {
+      background: var(--orange-lt) !important;
+      color: var(--orange-dk) !important;
+    }
+
+    .ts-dropdown .option.selected {
+      background: var(--orange) !important;
+      color: var(--white) !important;
+    }
+
+    .ts-control input::placeholder { color: var(--gray-400) !important; }
+
+    /* =========================================================
+       GPS PANEL
+    ========================================================= */
+    .gps-panel {
+      background: var(--gray-50);
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .gps-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 14px;
+    }
+
+    .gps-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--gray-400);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .gps-dot.loading {
+      background: #FFA726;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+
+    .gps-dot.success { background: var(--success); }
+    .gps-dot.error   { background: var(--error); }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50%       { transform: scale(1.5); opacity: 0.6; }
+    }
+
+    .gps-status-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-600);
+      flex: 1;
+    }
+
+    .btn-gps-refresh {
+      background: none;
+      border: 1px solid var(--gray-200);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--orange);
+      cursor: pointer;
+      font-family: inherit;
+      transition: background var(--transition);
+    }
+
+    .btn-gps-refresh:hover { background: var(--orange-lt); }
+
+    .gps-data {
+      border-top: 1px solid var(--gray-200);
+      padding: 12px 14px;
+      display: none;
+    }
+
+    .gps-data.visible { display: block; }
+
+    .gps-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .gps-row:last-child { margin-bottom: 0; }
+
+    .gps-item {
+      flex: 1;
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 7px;
+      padding: 9px 10px;
+    }
+
+    .gps-item-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray-400);
+      margin-bottom: 3px;
+    }
+
+    .gps-item-value {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--gray-800);
+      word-break: break-all;
+    }
+
+    .gps-address-box {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 7px;
+      padding: 10px 12px;
+    }
+
+    .gps-address-label {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gray-400);
+      margin-bottom: 4px;
+    }
+
+    .gps-address-value {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--gray-800);
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       PHOTO UPLOAD
+    ========================================================= */
+    .photo-upload-area {
+      border: 2px dashed var(--gray-200);
+      border-radius: var(--radius-sm);
+      background: var(--gray-50);
+      text-align: center;
+      padding: 28px 16px;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition);
+      position: relative;
+    }
+
+    .photo-upload-area:hover,
+    .photo-upload-area.drag-over {
+      border-color: var(--orange);
+      background: var(--orange-lt);
+    }
+
+    .photo-upload-area .upload-icon { font-size: 36px; margin-bottom: 8px; }
+
+    .photo-upload-area .upload-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+
+    .photo-upload-area .upload-sub {
+      font-size: 12px;
+      color: var(--gray-400);
+      font-weight: 500;
+    }
+
+    #photoInput { display: none; }
+
+    .photo-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .btn-photo {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 12px 10px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1.5px solid var(--gray-200);
+      background: var(--white);
+      color: var(--gray-800);
+      transition: all var(--transition);
+    }
+
+    .btn-photo:hover {
+      border-color: var(--orange);
+      color: var(--orange);
+      background: var(--orange-lt);
+    }
+
+    .btn-photo .icon { font-size: 18px; }
+
+    .photo-preview {
+      margin-top: 12px;
+      display: none;
+      position: relative;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1.5px solid var(--gray-200);
+    }
+
+    .photo-preview.visible { display: block; }
+
+    .photo-preview img {
+      width: 100%;
+      display: block;
+      max-height: 220px;
+      object-fit: cover;
+    }
+
+    .photo-preview-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: rgba(0,0,0,0.6);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .photo-preview-info {
+      font-size: 11.5px;
+      color: rgba(255,255,255,0.9);
+      font-weight: 600;
+    }
+
+    .btn-photo-remove {
+      background: rgba(198,40,40,0.8);
+      border: none;
+      border-radius: 5px;
+      padding: 4px 10px;
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* =========================================================
+       NUMBER INPUTS (counter group)
+    ========================================================= */
+    .counter-row {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .counter-row .form-group { margin-bottom: 0; }
+
+    .counter-divider {
+      height: 1px;
+      background: var(--gray-100);
+      margin: 0 -2px;
+    }
+
+    .counter-input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1.5px solid var(--gray-200);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--white);
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .counter-input-wrap:focus-within {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(232,80,10,0.10);
+    }
+
+    .counter-input-wrap.error {
+      border-color: var(--error);
+    }
+
+    .counter-btn {
+      width: 42px;
+      height: 48px;
+      flex-shrink: 0;
+      border: none;
+      background: var(--gray-100);
+      color: var(--gray-600);
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition), color var(--transition);
+      font-family: inherit;
+    }
+
+    .counter-btn:hover { background: var(--orange-lt); color: var(--orange); }
+    .counter-btn:active { background: var(--orange); color: var(--white); }
+
+    .counter-input {
+      flex: 1;
+      border: none;
+      text-align: center;
+      font-family: inherit;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gray-800);
+      background: transparent;
+      padding: 8px 4px;
+      min-width: 0;
+    }
+
+    .counter-input:focus { outline: none; }
+    .counter-input::-webkit-inner-spin-button { display: none; }
+
+    /* =========================================================
+       SUBMIT BUTTON
+    ========================================================= */
+    .submit-area { padding: 4px 0 8px; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dk) 100%);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(232,80,10,0.35);
+      transition: all var(--transition);
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 24px rgba(232,80,10,0.45);
+    }
+
+    .btn-submit:active { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-submit .btn-icon { font-size: 20px; }
+
+    /* loading spinner in button */
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .btn-submit.loading .spinner { display: block; }
+    .btn-submit.loading .btn-icon,
+    .btn-submit.loading .btn-label { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* =========================================================
+       TOAST NOTIFICATION
+    ========================================================= */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+      width: calc(100% - 32px);
+      max-width: 460px;
+    }
+
+    .toast {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      font-size: 13.5px;
+      font-weight: 600;
+      pointer-events: auto;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .toast.visible { transform: translateY(0); opacity: 1; }
+    .toast.hide { transform: translateY(20px); opacity: 0; }
+
+    .toast.success {
+      background: var(--success-lt);
+      border: 1.5px solid #A5D6A7;
+      color: var(--success);
+    }
+
+    .toast.error {
+      background: var(--error-lt);
+      border: 1.5px solid #EF9A9A;
+      color: var(--error);
+    }
+
+    .toast-icon { font-size: 20px; flex-shrink: 0; }
+    .toast-body { flex: 1; line-height: 1.5; }
+    .toast-title { font-weight: 800; font-size: 14px; }
+    .toast-msg { font-size: 12.5px; margin-top: 2px; font-weight: 500; }
+
+    /* =========================================================
+       OVERLAY LOADING
+    ========================================================= */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay.visible { display: flex; }
+
+    .overlay-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      text-align: center;
+      max-width: 280px;
+      width: calc(100% - 40px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .overlay-spinner {
+      width: 52px;
+      height: 52px;
+      border: 4px solid var(--gray-100);
+      border-top-color: var(--orange);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+
+    .overlay-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 6px;
+    }
+
+    .overlay-sub {
+      font-size: 13px;
+      color: var(--gray-400);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .overlay-progress {
+      margin-top: 16px;
+      height: 4px;
+      background: var(--gray-100);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .overlay-progress-bar {
+      height: 100%;
+      background: var(--orange);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+    .app-footer {
+      text-align: center;
+      padding: 20px 16px 8px;
+      font-size: 11px;
+      color: var(--gray-400);
+      font-weight: 500;
+    }
+
+    .app-footer strong { color: var(--orange); }
+
+    /* =========================================================
+       UTILITY
+    ========================================================= */
+    .info-banner {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFF8F0 100%);
+      border: 1px solid #FFCC80;
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+
+    .info-banner-icon { font-size: 18px; flex-shrink: 0; }
+
+    .info-banner-text {
+      font-size: 12.5px;
+      color: #E65100;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .char-count {
+      text-align: right;
+      font-size: 11px;
+      color: var(--gray-400);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    .char-count.warn { color: var(--error); }
+
+    /* =========================================================
+       RESPONSIVE TWEAKS
+    ========================================================= */
+    @media (max-width: 360px) {
+      .counter-btn { width: 36px; }
+      .counter-input { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <img src="data:image/png;base64,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" alt="BPS Kabupaten Majalengka" />
+      </div>
+      <div class="header-text">
+        <h1>Form Lapangan SE2026</h1>
+        <p>Badan Pusat Statistik – Sensus Ekonomi 2026</p>
+      </div>
+      <span class="header-badge">SE2026</span>
+    </div>
+    <div class="date-strip">
+      📅 <span id="currentDateDisplay"></span>
+    </div>
+  </header>
+
+  <!-- ========== MAIN ========== -->
+  <main class="container">
+
+    <!-- INFO BANNER -->
+    <div class="info-banner">
+      <span class="info-banner-icon">ℹ️</span>
+      <div class="info-banner-text">
+        Isi form ini setiap hari setelah kegiatan lapangan. Pastikan GPS aktif dan foto sudah terlampir sebelum submit.
+      </div>
+    </div>
+
+    <form id="mainForm" novalidate>
+
+      <!-- ===== IDENTITAS PETUGAS ===== -->
+      <div class="form-card">
+        <div class="card-header">
+          <div class="card-icon">👤</div>
+          <span class="card-title">Identitas Petugas</span>
+        </div>
+        <div class="card-body">
+
+          <!-- NAMA PML/PPL -->
+          <div class="form-group">
+            <label class="form-label" for="namaPetugas">
+              Nama PML / PPL <span class="req">*</span>
+            </label>
+            <select id="namaPetugas" placeholder="Cari dan pilih nama petugas..."></select>
+            <div class="form-error" id="err-nama">⚠ Nama petugas harus dipilih</div>
+          </div>
+
+          <!-- ID SOBAT -->
+          <div class="form-group">
+            <label class="form-label" for="idSobat">
+              ID Sobat <span class="req">*</span>
+            </label>
+            <input
+              type="tel"
+              id="idSobat"
+              class="form-input"
+              placeholder="Masukkan ID Sobat (maks. 13 digit)"
+              maxlength="13"
+              inputmode="numeric"
+              pattern="[0-9]*"
+            />
+            <div class="char-count"><span id="idSobatCount">0</span>/13 digit</div>
+            <div class="form-error" id="err-idsobat">⚠ ID Sobat harus diisi (angka saja, maks. 13 digit)</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== WILAYAH KERJA ===== -->
+      <div class="form-card">
+        <div class="card-header">
+          <div class="card-icon">🗺️</div>
+          <span class="card-title">Wilayah Kerja</span>
+        </div>
+        <div class="card-body">
+
+          <!-- KECAMATAN -->
+          <div class="form-group">
+            <label class="form-label" for="kecamatan">
+              Kecamatan <span class="req">*</span>
+            </label>
+            <select id="kecamatan" placeholder="Cari kecamatan..."></select>
+            <div class="form-error" id="err-kecamatan">⚠ Kecamatan harus dipilih</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== KOORDINAT GPS ===== -->
+      <div class="form-card">
+        <div class="card-header">
+          <div class="card-icon">📍</div>
+          <span class="card-title">Koordinat Lokasi</span>
+        </div>
+        <div class="card-body">
+
+          <div class="gps-panel">
+            <div class="gps-status">
+              <div class="gps-dot loading" id="gpsDot"></div>
+              <div class="gps-status-text" id="gpsStatusText">Mengambil koordinat GPS…</div>
+              <button type="button" class="btn-gps-refresh" id="btnGpsRefresh" onclick="getGPS()">🔄 Refresh</button>
+            </div>
+            <div class="gps-data" id="gpsData">
+              <div class="gps-row">
+                <div class="gps-item">
+                  <div class="gps-item-label">Latitude</div>
+                  <div class="gps-item-value" id="displayLat">–</div>
+                </div>
+                <div class="gps-item">
+                  <div class="gps-item-label">Longitude</div>
+                  <div class="gps-item-value" id="displayLng">–</div>
+                </div>
+              </div>
+              <div class="gps-row">
+                <div class="gps-item" style="flex:none;min-width:100%">
+                  <div class="gps-item-label">Waktu Pengambilan</div>
+                  <div class="gps-item-value" id="displayGeostamp">–</div>
+                </div>
+              </div>
+              <div class="gps-address-box" style="margin-top:8px">
+                <div class="gps-address-label">Alamat Lengkap</div>
+                <div class="gps-address-value" id="displayGeoAddress">Sedang mengambil alamat…</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hidden inputs for GPS data -->
+          <input type="hidden" id="latitude" />
+          <input type="hidden" id="longitude" />
+          <input type="hidden" id="geoAddress" />
+          <input type="hidden" id="geostamp" />
+
+          <div class="form-error" id="err-gps" style="margin-top:8px">⚠ Koordinat GPS belum berhasil diambil</div>
+
+        </div>
+      </div>
+
+      <!-- ===== FOTO KEGIATAN ===== -->
+      <div class="form-card">
+        <div class="card-header">
+          <div class="card-icon">📷</div>
+          <span class="card-title">Foto Kegiatan</span>
+        </div>
+        <div class="card-body">
+
+          <div class="photo-upload-area" id="photoDropArea" onclick="document.getElementById('photoInput').click()">
+            <div class="upload-icon">🖼️</div>
+            <div class="upload-title">Tap untuk ambil foto / unggah</div>
+            <div class="upload-sub">JPG/JPEG · Maks. 5MB · Auto-kompres</div>
+          </div>
+
+          <div class="photo-actions">
+            <button type="button" class="btn-photo" onclick="openCamera()">
+              <span class="icon">📸</span> Kamera
+            </button>
+            <button type="button" class="btn-photo" onclick="openGallery()">
+              <span class="icon">🗂️</span> Galeri
+            </button>
+          </div>
+
+          <input type="file" id="photoInput" accept="image/jpeg,image/jpg,image/*" capture="environment" />
+
+          <div class="photo-preview" id="photoPreview">
+            <img id="previewImg" src="" alt="Preview foto" />
+            <div class="photo-preview-bar">
+              <span class="photo-preview-info" id="photoInfo">–</span>
+              <button type="button" class="btn-photo-remove" onclick="removePhoto()">✕ Hapus</button>
+            </div>
+          </div>
+
+          <div class="form-error" id="err-foto">⚠ Foto kegiatan harus dilampirkan</div>
+
+        </div>
+      </div>
+
+      <!-- ===== REKAPITULASI SUBMIT ===== -->
+      <div class="form-card">
+        <div class="card-header">
+          <div class="card-icon">📋</div>
+          <span class="card-title">Rekapitulasi Submit</span>
+        </div>
+        <div class="card-body">
+
+          <div class="counter-row">
+            <div class="form-group">
+              <label class="form-label" for="submitHariIni">
+                Submit Hari Ini <span class="req">*</span>
+              </label>
+              <div class="counter-input-wrap" id="wrap-submitHariIni">
+                <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',-1)">−</button>
+                <input type="tel" id="submitHariIni" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
+                <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',1)">+</button>
+              </div>
+              <div class="form-hint">📅 Jumlah bangunan/KK yang disubmit hari ini</div>
+              <div class="form-error" id="err-hariini">⚠ Wajib diisi</div>
+            </div>
+
+            <div class="counter-divider"></div>
+
+            <div class="form-group">
+              <label class="form-label" for="submitTotal">
+                Total Semua Submit <span class="req">*</span>
+              </label>
+              <div class="counter-input-wrap" id="wrap-submitTotal">
+                <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',-1)">−</button>
+                <input type="tel" id="submitTotal" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
+                <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',1)">+</button>
+              </div>
+              <div class="form-hint">📊 Akumulasi total semua submit s.d. hari ini</div>
+              <div class="form-error" id="err-total">⚠ Wajib diisi</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== SUBMIT ===== -->
+      <div class="submit-area">
+        <button type="submit" class="btn-submit" id="btnSubmit">
+          <span class="btn-icon">🚀</span>
+          <span class="btn-label">Kirim Laporan</span>
+          <div class="spinner"></div>
+        </button>
+      </div>
+
+    </form>
+
+    <div class="app-footer">
+      Sensus Ekonomi 2026 &nbsp;·&nbsp; <strong>BPS RI</strong><br/>
+      Sistem Pelaporan Digital Petugas Lapangan
+    </div>
+
+  </main>
+
+  <!-- ========== OVERLAY ========== -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-card">
+      <div class="overlay-spinner"></div>
+      <div class="overlay-title">Mengirim Laporan…</div>
+      <div class="overlay-sub" id="overlayMsg">Mengupload foto ke Google Drive…</div>
+      <div class="overlay-progress">
+        <div class="overlay-progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST ========== -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+  /* =====================================================
+     CONFIG
+  ===================================================== */
+  const GAS_URL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL'; // ← Ganti setelah deploy
+
+  /* =====================================================
+     DATA
+  ===================================================== */
+  const NAMA_PETUGAS = [
+    'Ahmad Fauzi','Siti Nurhaliza','Budi Santoso','Dewi Rahayu',
+    'Eka Prasetyo','Fitri Handayani','Galih Permana','Hani Lestari',
+    'Indra Cahyono','Joko Widarto','Kurniawan Hadi','Lina Marliana',
+    'Muhammad Ridwan','Novi Anggraini','Odi Setiawan','Putri Wulandari',
+    'Qori Fatimah','Reza Maulana','Sri Wahyuni','Taufik Hidayat',
+    'Umar Faruq','Vina Oktavia','Wahyu Nugroho','Xenia Pratiwi',
+    'Yusuf Aditama','Zahara Ismail'
+  ];
+
+  const KECAMATAN = [
+    'Majalengka','Cigasong','Panyingkiran','Kadipaten','Kasokandel',
+    'Dawuan','Sumberjaya','Ligung','Jatitujuh','Kertajati',
+    'Sukahaji','Rajagaluh','Sindangwangi','Leuwimunding','Palasah',
+    'Jatiwangi','Cikijing','Talaga','Banjaran','Argapura',
+    'Bantarujeg','Malausma','Lemahsugih','Majalengka Kota','Cigasong Kota'
+  ];
+
+  /* =====================================================
+     INIT DATE DISPLAY
+  ===================================================== */
+  (function initDate(){
+    const d = new Date();
+    const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
+    document.getElementById('currentDateDisplay').textContent =
+      d.toLocaleDateString('id-ID', opts);
+  })();
+
+  /* =====================================================
+     TOM SELECT – NAMA PETUGAS
+  ===================================================== */
+  const tsNama = new TomSelect('#namaPetugas',{
+    options: NAMA_PETUGAS.map(n=>({value:n,text:n})),
+    placeholder: 'Cari dan pilih nama petugas…',
+    searchField: ['text'],
+    sortField: [{field:'text',direction:'asc'}],
+    maxOptions: 50,
+    create: false,
+    dropdownParent: 'body',
+    maxItems: 1,
+  });
+
+  /* =====================================================
+     TOM SELECT – KECAMATAN
+  ===================================================== */
+  const tsKec = new TomSelect('#kecamatan',{
+    options: KECAMATAN.map(k=>({value:k,text:k})),
+    placeholder: 'Cari kecamatan…',
+    searchField: ['text'],
+    sortField: [{field:'text',direction:'asc'}],
+    maxOptions: 50,
+    create: false,
+    dropdownParent: 'body',
+    maxItems: 1,
+    render: {
+      option: (data, escape) => `<div class="ts-option-item">${escape(data.text)}</div>`,
+    }
+  });
+
+  /* =====================================================
+     ID SOBAT – numeric only + counter
+  ===================================================== */
+  const idInput = document.getElementById('idSobat');
+  const idCount = document.getElementById('idSobatCount');
+
+  idInput.addEventListener('input', function(){
+    this.value = this.value.replace(/\D/g,'').slice(0,13);
+    idCount.textContent = this.value.length;
+    const warn = this.value.length >= 12;
+    idCount.parentElement.className = 'char-count' + (warn?' warn':'');
+    clearError('err-idsobat');
+    this.classList.remove('error');
+  });
+
+  /* =====================================================
+     GPS
+  ===================================================== */
+  let gpsData = { lat:null, lng:null, address:'', stamp:'' };
+
+  function getGPS(){
+    const dot  = document.getElementById('gpsDot');
+    const txt  = document.getElementById('gpsStatusText');
+    const data = document.getElementById('gpsData');
+    dot.className = 'gps-dot loading';
+    txt.textContent = 'Mengambil koordinat GPS…';
+    data.classList.remove('visible');
+
+    if(!navigator.geolocation){
+      dot.className = 'gps-dot error';
+      txt.textContent = 'GPS tidak didukung perangkat ini';
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        const lat = pos.coords.latitude;
+        const lng = pos.coords.longitude;
+        const stamp = new Date().toLocaleString('id-ID',{
+          year:'numeric',month:'2-digit',day:'2-digit',
+          hour:'2-digit',minute:'2-digit',second:'2-digit'
+        });
+
+        gpsData = { lat, lng, address:'Mengambil alamat…', stamp };
+
+        document.getElementById('displayLat').textContent = lat.toFixed(7);
+        document.getElementById('displayLng').textContent = lng.toFixed(7);
+        document.getElementById('displayGeostamp').textContent = stamp;
+        document.getElementById('displayGeoAddress').textContent = 'Mengambil alamat lengkap…';
+
+        document.getElementById('latitude').value  = lat;
+        document.getElementById('longitude').value = lng;
+        document.getElementById('geostamp').value  = stamp;
+
+        dot.className  = 'gps-dot success';
+        txt.textContent = 'Koordinat berhasil diambil ✓';
+        data.classList.add('visible');
+
+        // Reverse geocoding sampai level desa
+        fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=id&zoom=18&addressdetails=1`, {
+          headers: { 'Accept-Language': 'id' }
+        })
+          .then(r=>r.json())
+          .then(d=>{
+            const a = d.address || {};
+            // Susun alamat dari detail → umum sampai level desa/kelurahan
+            const desa       = a.village || a.hamlet || a.neighbourhood || a.suburb || '';
+            const kecamatan  = a.town    || a.city_district || a.county || '';
+            const kabupaten  = a.city    || a.county || a.state_district || '';
+            const provinsi   = a.state   || '';
+            const kodePos    = a.postcode || '';
+
+            // Format: Desa X, Kecamatan Y, Kabupaten Z, Provinsi W KODEPOS
+            const parts = [desa, kecamatan, kabupaten, provinsi].filter(Boolean);
+            const addrFormatted = parts.join(', ') + (kodePos ? ' ' + kodePos : '');
+            const addr = addrFormatted || d.display_name || `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+
+            gpsData.address = addr;
+            document.getElementById('displayGeoAddress').textContent = addr;
+            document.getElementById('geoAddress').value = addr;
+          })
+          .catch(()=>{
+            const addr = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+            gpsData.address = addr;
+            document.getElementById('displayGeoAddress').textContent = addr;
+            document.getElementById('geoAddress').value = addr;
+          });
+
+        clearError('err-gps');
+      },
+      err => {
+        dot.className = 'gps-dot error';
+        const msgs = {
+          1:'Akses GPS ditolak. Aktifkan izin lokasi.',
+          2:'Sinyal GPS tidak tersedia.',
+          3:'Permintaan GPS timeout.'
+        };
+        txt.textContent = msgs[err.code] || 'Gagal mengambil GPS';
+      },
+      { enableHighAccuracy:true, timeout:15000, maximumAge:0 }
+    );
+  }
+
+  // Auto-request GPS on load
+  window.addEventListener('load', ()=> setTimeout(getGPS, 600));
+
+  /* =====================================================
+     PHOTO UPLOAD
+  ===================================================== */
+  let photoBase64 = null;
+  let photoFileName = '';
+
+  function openCamera(){
+    const inp = document.getElementById('photoInput');
+    inp.setAttribute('capture','environment');
+    inp.click();
+  }
+
+  function openGallery(){
+    const inp = document.getElementById('photoInput');
+    inp.removeAttribute('capture');
+    inp.click();
+  }
+
+  document.getElementById('photoInput').addEventListener('change', function(){
+    const file = this.files[0];
+    if(!file) return;
+    if(file.size > 5*1024*1024){
+      showToast('error','File Terlalu Besar','Ukuran foto maks. 5MB');
+      return;
+    }
+    compressAndPreview(file);
+  });
+
+  function compressAndPreview(file){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      const img = new Image();
+      img.onload = function(){
+        const canvas = document.createElement('canvas');
+        const MAX_W = 1280, MAX_H = 960;
+        let w = img.width, h = img.height;
+        if(w > MAX_W){ h = Math.round(h*MAX_W/w); w = MAX_W; }
+        if(h > MAX_H){ w = Math.round(w*MAX_H/h); h = MAX_H; }
+        canvas.width = w; canvas.height = h;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img,0,0,w,h);
+        const compressed = canvas.toDataURL('image/jpeg',0.80);
+        photoBase64 = compressed.split(',')[1];
+        photoFileName = file.name;
+
+        document.getElementById('previewImg').src = compressed;
+        document.getElementById('photoPreview').classList.add('visible');
+        const sizekb = Math.round(compressed.length*0.75/1024);
+        document.getElementById('photoInfo').textContent = `${w}×${h}px · ~${sizekb}KB`;
+        clearError('err-foto');
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function removePhoto(){
+    photoBase64 = null; photoFileName = '';
+    document.getElementById('photoPreview').classList.remove('visible');
+    document.getElementById('photoInput').value = '';
+    document.getElementById('previewImg').src = '';
+  }
+
+  /* =====================================================
+     COUNTER INPUTS
+  ===================================================== */
+  function adjustCounter(id, delta){
+    const inp = document.getElementById(id);
+    let val = parseInt(inp.value)||0;
+    val = Math.max(0, Math.min(999, val+delta));
+    inp.value = val;
+    clearError('err-'+(id==='submitHariIni'?'hariini':'total'));
+    document.getElementById('wrap-'+id).classList.remove('error');
+  }
+
+  ['submitHariIni','submitTotal'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', function(){
+      this.value = this.value.replace(/\D/g,'').slice(0,3);
+    });
+  });
+
+  /* =====================================================
+     VALIDATION
+  ===================================================== */
+  function showError(id){ document.getElementById(id).classList.add('visible'); }
+  function clearError(id){ document.getElementById(id).classList.remove('visible'); }
+
+  function validateForm(){
+    let ok = true;
+
+    // Nama
+    if(!tsNama.getValue()){
+      showError('err-nama');
+      tsNama.control.closest('.ts-wrapper').classList.add('error');
+      ok = false;
+    } else {
+      clearError('err-nama');
+      tsNama.control.closest('.ts-wrapper').classList.remove('error');
+    }
+
+    // ID Sobat
+    const idVal = document.getElementById('idSobat').value.trim();
+    if(!idVal || !/^\d+$/.test(idVal) || idVal.length > 13){
+      showError('err-idsobat');
+      document.getElementById('idSobat').classList.add('error');
+      ok = false;
+    } else {
+      clearError('err-idsobat');
+      document.getElementById('idSobat').classList.remove('error');
+    }
+
+    // Kecamatan
+    if(!tsKec.getValue()){
+      showError('err-kecamatan');
+      tsKec.control.closest('.ts-wrapper').classList.add('error');
+      ok = false;
+    } else {
+      clearError('err-kecamatan');
+      tsKec.control.closest('.ts-wrapper').classList.remove('error');
+    }
+
+    // GPS
+    if(!gpsData.lat || !gpsData.lng){
+      showError('err-gps');
+      ok = false;
+    } else {
+      clearError('err-gps');
+    }
+
+    // Foto
+    if(!photoBase64){
+      showError('err-foto');
+      ok = false;
+    } else {
+      clearError('err-foto');
+    }
+
+    // Submit hari ini
+    const hariIni = document.getElementById('submitHariIni').value;
+    if(hariIni==='' || hariIni===null){
+      showError('err-hariini');
+      document.getElementById('wrap-submitHariIni').classList.add('error');
+      ok = false;
+    } else {
+      clearError('err-hariini');
+      document.getElementById('wrap-submitHariIni').classList.remove('error');
+    }
+
+    // Total
+    const total = document.getElementById('submitTotal').value;
+    if(total==='' || total===null){
+      showError('err-total');
+      document.getElementById('wrap-submitTotal').classList.add('error');
+      ok = false;
+    } else {
+      clearError('err-total');
+      document.getElementById('wrap-submitTotal').classList.remove('error');
+    }
+
+    return ok;
+  }
+
+  /* =====================================================
+     OVERLAY PROGRESS
+  ===================================================== */
+  function showOverlay(msg){ 
+    document.getElementById('overlay').classList.add('visible');
+    document.getElementById('overlayMsg').textContent = msg;
+    document.getElementById('progressBar').style.width = '0%';
+  }
+
+  function updateOverlay(msg, pct){ 
+    document.getElementById('overlayMsg').textContent = msg;
+    document.getElementById('progressBar').style.width = pct+'%';
+  }
+
+  function hideOverlay(){ 
+    document.getElementById('overlay').classList.remove('visible');
+  }
+
+  /* =====================================================
+     TOAST
+  ===================================================== */
+  function showToast(type, title, msg){
+    const tc = document.getElementById('toastContainer');
+    const div = document.createElement('div');
+    div.className = `toast ${type}`;
+    div.innerHTML = `
+      <div class="toast-icon">${type==='success'?'✅':'❌'}</div>
+      <div class="toast-body">
+        <div class="toast-title">${title}</div>
+        <div class="toast-msg">${msg}</div>
+      </div>`;
+    tc.appendChild(div);
+    requestAnimationFrame(()=>{ setTimeout(()=>div.classList.add('visible'),10); });
+    setTimeout(()=>{
+      div.classList.add('hide');
+      setTimeout(()=>div.remove(), 400);
+    }, 5000);
+  }
+
+  /* =====================================================
+     BUILD PHOTO FILENAME
+  ===================================================== */
+  function buildPhotoName(){
+    const d = new Date();
+    const pad = n=>String(n).padStart(2,'0');
+    const date = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+    const kec  = (tsKec.getValue()||'Kecamatan').replace(/\s+/g,'');
+    const id   = document.getElementById('idSobat').value.trim();
+    const nama = (tsNama.getValue()||'Petugas').replace(/\s+/g,'');
+    return `${date}_${kec}_${id}_${nama}.jpg`;
+  }
+
+  /* =====================================================
+     SUBMIT
+  ===================================================== */
+  document.getElementById('mainForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    if(!validateForm()) return;
+
+    const btn = document.getElementById('btnSubmit');
+    btn.classList.add('loading');
+    btn.disabled = true;
+
+    showOverlay('Menyiapkan data laporan…');
+    updateOverlay('Mengompres foto…', 15);
+
+    const payload = {
+      nama      : tsNama.getValue(),
+      idSobat   : document.getElementById('idSobat').value.trim(),
+      kecamatan : tsKec.getValue(),
+      latitude  : gpsData.lat,
+      longitude : gpsData.lng,
+      geoAddress: gpsData.address,
+      geostamp  : gpsData.stamp,
+      submitHariIni : document.getElementById('submitHariIni').value,
+      submitTotal   : document.getElementById('submitTotal').value,
+      fotoBase64: photoBase64,
+      fotoNama  : buildPhotoName(),
+    };
+
+    updateOverlay('Mengupload foto ke Google Drive…', 35);
+
+    try {
+      updateOverlay('Mengirim data ke server…', 60);
+
+      // ── PERBAIKAN: Kirim via FormData dengan field 'data' berisi JSON string.
+      // GAS Web App tidak support custom headers / preflight CORS.
+      // FormData dengan satu field text = simple request = tidak trigger preflight.
+      const form = new FormData();
+      form.append('data', JSON.stringify(payload));
+
+      const res = await fetch(GAS_URL, {
+        method   : 'POST',
+        body     : form,
+        redirect : 'follow',   // GAS sering redirect ke URL final
+      });
+
+      updateOverlay('Menyimpan ke Spreadsheet…', 85);
+      const text = await res.text();
+
+      // GAS kadang membungkus response – ambil JSON dari text
+      let json;
+      try {
+        json = JSON.parse(text);
+      } catch(_) {
+        // Jika tidak bisa di-parse, kemungkinan redirect HTML – anggap sukses
+        // selama HTTP status 2xx
+        json = res.ok
+          ? { status:'success', message:'Data berhasil disimpan.' }
+          : { status:'error',   message:'Response tidak valid dari server.' };
+      }
+
+      updateOverlay('Selesai!', 100);
+      await new Promise(r=>setTimeout(r,600));
+      hideOverlay();
+      btn.classList.remove('loading');
+      btn.disabled = false;
+
+      if(json.status === 'success'){
+        showToast('success','Laporan Terkirim!',
+          `Data ${payload.nama} berhasil disimpan. 🎉`);
+        resetForm();
+      } else {
+        showToast('error','Gagal Mengirim', json.message||'Terjadi kesalahan server.');
+      }
+
+    } catch(err){
+      hideOverlay();
+      btn.classList.remove('loading');
+      btn.disabled = false;
+      showToast('error','Koneksi Gagal',
+        'Periksa koneksi internet Anda dan coba lagi.');
+      console.error(err);
+    }
+  });
+
+  /* =====================================================
+     RESET FORM
+  ===================================================== */
+  function resetForm(){
+    tsNama.clear();
+    tsKec.clear();
+    document.getElementById('idSobat').value = '';
+    document.getElementById('idSobatCount').textContent = '0';
+    document.getElementById('submitHariIni').value = '0';
+    document.getElementById('submitTotal').value = '0';
+    removePhoto();
+    gpsData = { lat:null, lng:null, address:'', stamp:'' };
+    document.getElementById('latitude').value = '';
+    document.getElementById('longitude').value = '';
+    document.getElementById('geoAddress').value = '';
+    document.getElementById('geostamp').value = '';
+    document.getElementById('gpsData').classList.remove('visible');
+    document.getElementById('gpsDot').className = 'gps-dot';
+    document.getElementById('gpsStatusText').textContent = 'Koordinat belum diambil';
+    // scroll to top
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  </script>
+
+</body>
+</html>
