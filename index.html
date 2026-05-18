@@ -1539,31 +1539,30 @@
     try {
       updateOverlay('Mengirim data ke server…', 60);
 
-      // ── PERBAIKAN: Kirim via FormData dengan field 'data' berisi JSON string.
-      // GAS Web App tidak support custom headers / preflight CORS.
-      // FormData dengan satu field text = simple request = tidak trigger preflight.
-      const form = new FormData();
-      form.append('data', JSON.stringify(payload));
+      // ── Kirim payload JSON sebagai query param ?data=... ──────────────────
+      // Cara paling kompatibel dengan GAS Web App:
+      // GAS membaca e.parameter.data baik dari GET maupun POST + query string.
+      // Tidak ada preflight CORS, tidak ada masalah Content-Type.
+      const jsonStr   = JSON.stringify(payload);
+      const targetURL = GAS_URL + '?data=' + encodeURIComponent(jsonStr);
 
-      const res = await fetch(GAS_URL, {
-        method   : 'POST',
-        body     : form,
-        redirect : 'follow',   // GAS sering redirect ke URL final
+      const res = await fetch(targetURL, {
+        method  : 'POST',
+        redirect: 'follow',
       });
 
       updateOverlay('Menyimpan ke Spreadsheet…', 85);
       const text = await res.text();
 
-      // GAS kadang membungkus response – ambil JSON dari text
+      // Parse response – ambil JSON pertama yang ditemukan di response text
       let json;
       try {
-        json = JSON.parse(text);
+        const match = text.match(/\{[\s\S]*\}/);
+        json = JSON.parse(match ? match[0] : text);
       } catch(_) {
-        // Jika tidak bisa di-parse, kemungkinan redirect HTML – anggap sukses
-        // selama HTTP status 2xx
         json = res.ok
           ? { status:'success', message:'Data berhasil disimpan.' }
-          : { status:'error',   message:'Response tidak valid dari server.' };
+          : { status:'error',   message:'Gagal parse response. Cek log Apps Script.' };
       }
 
       updateOverlay('Selesai!', 100);
