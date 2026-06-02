@@ -891,26 +891,31 @@
 <header class="app-header">
   <div class="header-inner">
 
-    <!-- Kiri: Logo BPS + Teks + Tanggal -->
+    <!-- Kiri -->
     <div class="header-left">
-        <img src="logobps2.png" alt="BPS Kabupaten Majalengka" width="70"
-             style="mix-blend-mode: multiply; background: transparent;">
-      </div>
+
+      <img src="logobps2.png"
+           alt="Logo BPS"
+           class="logo-bps">
+
       <div class="header-text">
         <h1>LAPOR Lapangan SE2026</h1>
         <p>BPS Kabupaten Majalengka – Sensus Ekonomi 2026</p>
-        <div class="date-strip">📅 <span id="currentDateDisplay"></span></div>
+
+        <div class="date-strip">
+          📅 <span id="currentDateDisplay"></span>
+        </div>
       </div>
+
     </div>
 
-    <!-- Kanan: Logo SE2026 -->
+    <!-- Kanan -->
     <div class="header-right">
-      <img src="se2026.png" alt="Logo SE2026" width="120">
+      <img src="se2026.png" alt="Logo SE2026">
     </div>
 
   </div>
 </header>
-
   <!-- ========== MAIN ========== -->
   <main class="container">
 
@@ -1220,7 +1225,7 @@
   const idCount = document.getElementById('idSobatCount');
 
   idInput.addEventListener('input', function(){
-    this.value = this.value.replace(/\D/g,'').slice(0,13);
+    this.value = this.value.replace(/\D/g,'').slice(0,12);
     idCount.textContent = this.value.length;
     const warn = this.value.length >= 12;
     idCount.parentElement.className = 'char-count' + (warn?' warn':'');
