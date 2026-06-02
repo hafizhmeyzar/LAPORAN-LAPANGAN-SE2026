@@ -868,21 +868,30 @@
 </head>
 <body>
 
-  <!-- ========== HEADER ========== -->
-  <header class="app-header">
-    <div class="header-inner">
+<!-- ========== HEADER ========== -->
+<header class="app-header">
+  <div class="header-inner">
+
+    <!-- Kiri: Logo BPS + Teks + Tanggal -->
+    <div class="header-left">
       <div class="header-logo">
-        <img src="logobps2.png" alt="BPS Kabupaten Majalengka" width="130">
+        <img src="logobps2.png" alt="BPS Kabupaten Majalengka" width="55"
+             style="mix-blend-mode: multiply; background: transparent;">
       </div>
       <div class="header-text">
         <h1>LAPOR Lapangan SE2026</h1>
         <p>BPS Kabupaten Majalengka – Sensus Ekonomi 2026</p>
+        <div class="date-strip">📅 <span id="currentDateDisplay"></span></div>
       </div>
-        <img src="se2026.png" alt="Logo SE2026" width="130">
-    <div class="date-strip">
-      📅 <span id="currentDateDisplay"></span>
     </div>
-  </header>
+
+    <!-- Kanan: Logo SE2026 -->
+    <div class="header-right">
+      <img src="se2026.png" alt="Logo SE2026" width="120">
+    </div>
+
+  </div>
+</header>
 
   <!-- ========== MAIN ========== -->
   <main class="container">
