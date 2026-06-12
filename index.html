@@ -6,18 +6,13 @@
   <meta name="theme-color" content="#E8500A" />
   <title>LAPOR Lapangan SE2026 – BPS Kabupaten Majalengka</title>
 
-  <!-- TomSelect for searchable dropdowns -->
   <link href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <style>
-    /* =========================================================
-       RESET & BASE
-    ========================================================= */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -52,9 +47,6 @@
       padding-bottom: 40px;
     }
 
-    /* =========================================================
-       HEADER
-    ========================================================= */
     .app-header {
       background: linear-gradient(135deg, #FCD779 0%, #FCCF5D 100%);
       color: var(--white);
@@ -80,88 +72,37 @@
     }
 
     .header-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    padding: 14px 10px 14px 16px;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      padding: 14px 10px 14px 16px;
     }
 
-    .header-right img {
-    width: 120px;
-    height: auto;
-    }
+    .header-right img { width: 120px; height: auto; }
 
     .header-logo {
-    width: 52px;
-    height: 52px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    overflow: hidden;
-    background: #000;
-    padding: 2px;
-    }
-    
-    .header-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 8px;
+      width: 52px; height: 52px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+      background: #000; padding: 2px;
     }
 
-    .header-text h1 {
-     font-size: 15px;
-     font-weight: 800;
-     letter-spacing: 0.2px;
-     line-height: 1.2;
-    }
+    .header-logo img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
 
-    .header-text p {
-     font-size: 11.5px;
-     opacity: 0.88;
-     font-weight: 500;
-     margin-top: 2px;
-    }
+    .header-text h1 { font-size: 15px; font-weight: 800; letter-spacing: 0.2px; line-height: 1.2; }
+    .header-text p  { font-size: 11.5px; opacity: 0.88; font-weight: 500; margin-top: 2px; }
 
-    .header-badge {
-     margin-left: auto;
-     background: rgba(255,255,255,0.2);
-     border: 1px solid rgba(255,255,255,0.35);
-     color: #fff;
-     font-size: 10px;
-     font-weight: 700;
-     padding: 4px 9px;
-     border-radius: 20px;
-     letter-spacing: 0.5px;
-     flex-shrink: 0;
-    }
-
-    /* Date strip */
     .date-strip {
       background: rgba(0,0,0,0.15);
       padding: 7px 16px;
-      font-size: 11.5px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-size: 11.5px; font-weight: 600;
+      display: flex; align-items: center; gap: 6px;
       color: rgba(255,255,255,0.92);
     }
 
-    /* =========================================================
-       CONTAINER
-    ========================================================= */
-    .container {
-      max-width: 540px;
-      margin: 0 auto;
-      padding: 16px 14px;
-    }
+    .container { max-width: 540px; margin: 0 auto; padding: 16px 14px; }
 
-    /* =========================================================
-       SECTION CARD
-    ========================================================= */
     .form-card {
       background: var(--white);
       border-radius: var(--radius);
@@ -171,997 +112,527 @@
     }
 
     .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: flex; align-items: center; gap: 10px;
       padding: 13px 16px;
       background: var(--gray-50);
       border-bottom: 1px solid var(--gray-100);
     }
 
     .card-icon {
-      width: 32px;
-      height: 32px;
+      width: 32px; height: 32px;
       background: var(--orange-lt);
       border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; flex-shrink: 0;
     }
 
-    .card-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--gray-800);
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-    }
+    .card-title { font-size: 13px; font-weight: 700; color: var(--gray-800); text-transform: uppercase; letter-spacing: 0.4px; }
+    .card-body  { padding: 16px; }
 
-    .card-body { padding: 16px; }
-
-    /* =========================================================
-       FORM ELEMENTS
-    ========================================================= */
     .form-group { margin-bottom: 16px; }
     .form-group:last-child { margin-bottom: 0; }
 
     .form-label {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12.5px;
-      font-weight: 700;
+      display: flex; align-items: center; gap: 5px;
+      font-size: 12.5px; font-weight: 700;
       color: var(--gray-600);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      text-transform: uppercase; letter-spacing: 0.5px;
       margin-bottom: 7px;
     }
 
-    .form-label .req {
-      color: var(--orange);
-      font-size: 14px;
-      line-height: 1;
-    }
+    .form-label .req { color: var(--orange); font-size: 14px; line-height: 1; }
 
     .form-input {
-      width: 100%;
-      padding: 12px 14px;
+      width: 100%; padding: 12px 14px;
       border: 1.5px solid var(--gray-200);
       border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--gray-800);
-      background: var(--white);
+      font-family: inherit; font-size: 15px; font-weight: 500;
+      color: var(--gray-800); background: var(--white);
       transition: border-color var(--transition), box-shadow var(--transition);
-      -webkit-appearance: none;
-      appearance: none;
+      -webkit-appearance: none; appearance: none;
     }
 
-    .form-input:focus {
-      outline: none;
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(232,80,10,0.10);
-    }
+    .form-input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,80,10,0.10); }
+    .form-input.error { border-color: var(--error); box-shadow: 0 0 0 3px rgba(198,40,40,0.08); }
 
-    .form-input.error {
-      border-color: var(--error);
-      box-shadow: 0 0 0 3px rgba(198,40,40,0.08);
-    }
-
-    .form-hint {
-      font-size: 11.5px;
-      color: var(--gray-400);
-      margin-top: 5px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
+    .form-hint  { font-size: 11.5px; color: var(--gray-400); margin-top: 5px; display: flex; align-items: center; gap: 4px; }
 
     .form-error {
-      font-size: 11.5px;
-      color: var(--error);
-      margin-top: 5px;
-      display: none;
-      align-items: center;
-      gap: 4px;
-      font-weight: 600;
+      font-size: 11.5px; color: var(--error);
+      margin-top: 5px; display: none;
+      align-items: center; gap: 4px; font-weight: 600;
     }
-
     .form-error.visible { display: flex; }
 
-    /* =========================================================
-       TOM SELECT CUSTOM STYLES
-    ========================================================= */
-    .ts-wrapper {
-      width: 100%;
-    }
+    .ts-wrapper { width: 100%; }
 
     .ts-control {
       border: 1.5px solid var(--gray-200) !important;
       border-radius: var(--radius-sm) !important;
       padding: 10px 14px !important;
-      font-size: 15px !important;
-      font-family: inherit !important;
-      font-weight: 500 !important;
-      min-height: 48px !important;
-      box-shadow: none !important;
+      font-size: 15px !important; font-family: inherit !important; font-weight: 500 !important;
+      min-height: 48px !important; box-shadow: none !important;
       background: var(--white) !important;
       transition: border-color var(--transition), box-shadow var(--transition) !important;
     }
 
-    .ts-wrapper.focus .ts-control {
-      border-color: var(--orange) !important;
-      box-shadow: 0 0 0 3px rgba(232,80,10,0.10) !important;
-    }
-
-    .ts-wrapper.error .ts-control {
-      border-color: var(--error) !important;
-    }
+    .ts-wrapper.focus .ts-control { border-color: var(--orange) !important; box-shadow: 0 0 0 3px rgba(232,80,10,0.10) !important; }
+    .ts-wrapper.error .ts-control  { border-color: var(--error) !important; }
 
     .ts-dropdown {
       border-radius: var(--radius-sm) !important;
       border: 1.5px solid var(--gray-200) !important;
       box-shadow: 0 8px 40px rgba(0,0,0,0.18) !important;
-      font-family: inherit !important;
-      font-size: 15px !important;
-      overflow: visible !important;
-      z-index: 9999 !important;
-      position: absolute !important;
-      max-height: 260px !important;
+      font-family: inherit !important; font-size: 15px !important;
+      overflow: visible !important; z-index: 9999 !important;
+      position: absolute !important; max-height: 260px !important;
     }
 
-    .ts-dropdown-content {
-      max-height: 260px !important;
-      overflow-y: auto !important;
-      -webkit-overflow-scrolling: touch !important;
-      overscroll-behavior: contain !important;
-    }
-
-    .ts-wrapper {
-      position: relative !important;
-    }
-
-    .ts-dropdown .option {
-      padding: 11px 14px !important;
-      font-weight: 500 !important;
-    }
-
-    .ts-dropdown .option.active,
-    .ts-dropdown .option:hover {
-      background: var(--orange-lt) !important;
-      color: var(--orange-dk) !important;
-    }
-
-    .ts-dropdown .option.selected {
-      background: var(--orange) !important;
-      color: var(--white) !important;
-    }
-
+    .ts-dropdown-content { max-height: 260px !important; overflow-y: auto !important; -webkit-overflow-scrolling: touch !important; overscroll-behavior: contain !important; }
+    .ts-wrapper { position: relative !important; }
+    .ts-dropdown .option { padding: 11px 14px !important; font-weight: 500 !important; }
+    .ts-dropdown .option.active, .ts-dropdown .option:hover { background: var(--orange-lt) !important; color: var(--orange-dk) !important; }
+    .ts-dropdown .option.selected { background: var(--orange) !important; color: var(--white) !important; }
     .ts-control input::placeholder { color: var(--gray-400) !important; }
 
-    /* =========================================================
-       GPS PANEL
-    ========================================================= */
-    .gps-panel {
-      background: var(--gray-50);
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-    }
+    .gps-panel { background: var(--gray-50); border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm); overflow: hidden; }
 
-    .gps-status {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 13px 14px;
-    }
+    .gps-status { display: flex; align-items: center; gap: 10px; padding: 13px 14px; }
 
-    .gps-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--gray-400);
-      flex-shrink: 0;
-      position: relative;
-    }
-
-    .gps-dot.loading {
-      background: #FFA726;
-      animation: pulse 1.2s ease-in-out infinite;
-    }
-
+    .gps-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gray-400); flex-shrink: 0; position: relative; }
+    .gps-dot.loading { background: #FFA726; animation: pulse 1.2s ease-in-out infinite; }
     .gps-dot.success { background: var(--success); }
     .gps-dot.error   { background: var(--error); }
 
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50%       { transform: scale(1.5); opacity: 0.6; }
-    }
+    @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.6; } }
 
-    .gps-status-text {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--gray-600);
-      flex: 1;
-    }
+    .gps-status-text { font-size: 13px; font-weight: 600; color: var(--gray-600); flex: 1; }
 
     .btn-gps-refresh {
-      background: none;
-      border: 1px solid var(--gray-200);
-      border-radius: 6px;
-      padding: 5px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--orange);
-      cursor: pointer;
-      font-family: inherit;
+      background: none; border: 1px solid var(--gray-200); border-radius: 6px;
+      padding: 5px 10px; font-size: 12px; font-weight: 600;
+      color: var(--orange); cursor: pointer; font-family: inherit;
       transition: background var(--transition);
     }
-
     .btn-gps-refresh:hover { background: var(--orange-lt); }
 
-    .gps-data {
-      border-top: 1px solid var(--gray-200);
-      padding: 12px 14px;
-      display: none;
-    }
-
+    .gps-data { border-top: 1px solid var(--gray-200); padding: 12px 14px; display: none; }
     .gps-data.visible { display: block; }
 
-    .gps-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
+    .gps-row { display: flex; gap: 8px; margin-bottom: 8px; }
     .gps-row:last-child { margin-bottom: 0; }
 
-    .gps-item {
-      flex: 1;
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 7px;
-      padding: 9px 10px;
-    }
+    .gps-item { flex: 1; background: var(--white); border: 1px solid var(--gray-200); border-radius: 7px; padding: 9px 10px; }
+    .gps-item-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-400); margin-bottom: 3px; }
+    .gps-item-value { font-size: 12.5px; font-weight: 600; color: var(--gray-800); word-break: break-all; }
 
-    .gps-item-label {
-      font-size: 9.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--gray-400);
-      margin-bottom: 3px;
-    }
+    .gps-address-box { background: var(--white); border: 1px solid var(--gray-200); border-radius: 7px; padding: 10px 12px; }
+    .gps-address-label { font-size: 9.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray-400); margin-bottom: 4px; }
+    .gps-address-value { font-size: 12.5px; font-weight: 500; color: var(--gray-800); line-height: 1.5; }
 
-    .gps-item-value {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--gray-800);
-      word-break: break-all;
-    }
-
-    .gps-address-box {
-      background: var(--white);
-      border: 1px solid var(--gray-200);
-      border-radius: 7px;
-      padding: 10px 12px;
-    }
-
-    .gps-address-label {
-      font-size: 9.5px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--gray-400);
-      margin-bottom: 4px;
-    }
-
-    .gps-address-value {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: var(--gray-800);
-      line-height: 1.5;
-    }
-
-    /* =========================================================
-       PHOTO UPLOAD
-    ========================================================= */
     .photo-upload-area {
-      border: 2px dashed var(--gray-200);
-      border-radius: var(--radius-sm);
-      background: var(--gray-50);
-      text-align: center;
-      padding: 28px 16px;
-      cursor: pointer;
-      transition: border-color var(--transition), background var(--transition);
-      position: relative;
+      border: 2px dashed var(--gray-200); border-radius: var(--radius-sm);
+      background: var(--gray-50); text-align: center; padding: 28px 16px;
+      cursor: pointer; transition: border-color var(--transition), background var(--transition); position: relative;
     }
-
-    .photo-upload-area:hover,
-    .photo-upload-area.drag-over {
-      border-color: var(--orange);
-      background: var(--orange-lt);
-    }
-
-    .photo-upload-area .upload-icon { font-size: 36px; margin-bottom: 8px; }
-
-    .photo-upload-area .upload-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--gray-800);
-      margin-bottom: 4px;
-    }
-
-    .photo-upload-area .upload-sub {
-      font-size: 12px;
-      color: var(--gray-400);
-      font-weight: 500;
-    }
+    .photo-upload-area:hover, .photo-upload-area.drag-over { border-color: var(--orange); background: var(--orange-lt); }
+    .photo-upload-area .upload-icon  { font-size: 36px; margin-bottom: 8px; }
+    .photo-upload-area .upload-title { font-size: 14px; font-weight: 700; color: var(--gray-800); margin-bottom: 4px; }
+    .photo-upload-area .upload-sub   { font-size: 12px; color: var(--gray-400); font-weight: 500; }
 
     #photoInput { display: none; }
 
-    .photo-actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-    }
+    .photo-actions { display: flex; gap: 10px; margin-top: 12px; }
 
     .btn-photo {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      padding: 12px 10px;
-      border-radius: var(--radius-sm);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 700;
-      cursor: pointer;
-      border: 1.5px solid var(--gray-200);
-      background: var(--white);
-      color: var(--gray-800);
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 7px;
+      padding: 12px 10px; border-radius: var(--radius-sm);
+      font-family: inherit; font-size: 13px; font-weight: 700;
+      cursor: pointer; border: 1.5px solid var(--gray-200);
+      background: var(--white); color: var(--gray-800);
       transition: all var(--transition);
     }
-
-    .btn-photo:hover {
-      border-color: var(--orange);
-      color: var(--orange);
-      background: var(--orange-lt);
-    }
-
+    .btn-photo:hover { border-color: var(--orange); color: var(--orange); background: var(--orange-lt); }
     .btn-photo .icon { font-size: 18px; }
 
-    .photo-preview {
-      margin-top: 12px;
-      display: none;
-      position: relative;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      border: 1.5px solid var(--gray-200);
-    }
-
+    .photo-preview { margin-top: 12px; display: none; position: relative; border-radius: var(--radius-sm); overflow: hidden; border: 1.5px solid var(--gray-200); }
     .photo-preview.visible { display: block; }
+    .photo-preview img { width: 100%; display: block; max-height: 220px; object-fit: cover; }
 
-    .photo-preview img {
-      width: 100%;
-      display: block;
-      max-height: 220px;
-      object-fit: cover;
-    }
+    .photo-preview-bar { display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(0,0,0,0.6); position: absolute; bottom: 0; left: 0; right: 0; }
+    .photo-preview-info { font-size: 11.5px; color: rgba(255,255,255,0.9); font-weight: 600; }
+    .btn-photo-remove { background: rgba(198,40,40,0.8); border: none; border-radius: 5px; padding: 4px 10px; color: #fff; font-size: 11.5px; font-weight: 700; cursor: pointer; font-family: inherit; }
 
-    .photo-preview-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      background: rgba(0,0,0,0.6);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
-    .photo-preview-info {
-      font-size: 11.5px;
-      color: rgba(255,255,255,0.9);
-      font-weight: 600;
-    }
-
-    .btn-photo-remove {
-      background: rgba(198,40,40,0.8);
-      border: none;
-      border-radius: 5px;
-      padding: 4px 10px;
-      color: #fff;
-      font-size: 11.5px;
-      font-weight: 700;
-      cursor: pointer;
-      font-family: inherit;
-    }
-
-    /* =========================================================
-       NUMBER INPUTS (counter group)
-    ========================================================= */
-    .counter-row {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
+    .counter-row { display: flex; flex-direction: column; gap: 14px; }
     .counter-row .form-group { margin-bottom: 0; }
-
-    .counter-divider {
-      height: 1px;
-      background: var(--gray-100);
-      margin: 0 -2px;
-    }
+    .counter-divider { height: 1px; background: var(--gray-100); margin: 0 -2px; }
 
     .counter-input-wrap {
-      display: flex;
-      align-items: center;
-      border: 1.5px solid var(--gray-200);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background: var(--white);
+      display: flex; align-items: center;
+      border: 1.5px solid var(--gray-200); border-radius: var(--radius-sm);
+      overflow: hidden; background: var(--white);
       transition: border-color var(--transition), box-shadow var(--transition);
     }
-
-    .counter-input-wrap:focus-within {
-      border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(232,80,10,0.10);
-    }
-
-    .counter-input-wrap.error {
-      border-color: var(--error);
-    }
+    .counter-input-wrap:focus-within { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(232,80,10,0.10); }
+    .counter-input-wrap.error { border-color: var(--error); }
 
     .counter-btn {
-      width: 42px;
-      height: 48px;
-      flex-shrink: 0;
-      border: none;
-      background: var(--gray-100);
-      color: var(--gray-600);
-      font-size: 20px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 42px; height: 48px; flex-shrink: 0;
+      border: none; background: var(--gray-100); color: var(--gray-600);
+      font-size: 20px; font-weight: 700; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
       transition: background var(--transition), color var(--transition);
       font-family: inherit;
     }
-
-    .counter-btn:hover { background: var(--orange-lt); color: var(--orange); }
+    .counter-btn:hover  { background: var(--orange-lt); color: var(--orange); }
     .counter-btn:active { background: var(--orange); color: var(--white); }
 
     .counter-input {
-      flex: 1;
-      border: none;
-      text-align: center;
-      font-family: inherit;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--gray-800);
-      background: transparent;
-      padding: 8px 4px;
-      min-width: 0;
+      flex: 1; border: none; text-align: center;
+      font-family: inherit; font-size: 20px; font-weight: 800;
+      color: var(--gray-800); background: transparent;
+      padding: 8px 4px; min-width: 0;
     }
-
     .counter-input:focus { outline: none; }
     .counter-input::-webkit-inner-spin-button { display: none; }
 
-    /* =========================================================
-       SUBMIT BUTTON
-    ========================================================= */
     .submit-area { padding: 4px 0 8px; }
 
     .btn-submit {
-      width: 100%;
-      padding: 16px 20px;
+      width: 100%; padding: 16px 20px;
       background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dk) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: var(--radius);
-      font-family: inherit;
-      font-size: 16px;
-      font-weight: 800;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+      color: var(--white); border: none; border-radius: var(--radius);
+      font-family: inherit; font-size: 16px; font-weight: 800;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px;
       box-shadow: 0 4px 20px rgba(232,80,10,0.35);
-      transition: all var(--transition);
-      letter-spacing: 0.3px;
-      position: relative;
-      overflow: hidden;
+      transition: all var(--transition); letter-spacing: 0.3px;
+      position: relative; overflow: hidden;
     }
-
-    .btn-submit:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 24px rgba(232,80,10,0.45);
-    }
-
-    .btn-submit:active { transform: translateY(0); }
-
-    .btn-submit:disabled {
-      opacity: 0.65;
-      cursor: not-allowed;
-      transform: none;
-    }
-
+    .btn-submit:hover    { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(232,80,10,0.45); }
+    .btn-submit:active   { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
     .btn-submit .btn-icon { font-size: 20px; }
 
-    /* loading spinner in button */
-    .spinner {
-      width: 20px;
-      height: 20px;
-      border: 2.5px solid rgba(255,255,255,0.4);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      display: none;
-    }
-
-    .btn-submit.loading .spinner { display: block; }
+    .spinner { width: 20px; height: 20px; border: 2.5px solid rgba(255,255,255,0.4); border-top-color: #fff; border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
+    .btn-submit.loading .spinner   { display: block; }
     .btn-submit.loading .btn-icon,
     .btn-submit.loading .btn-label { display: none; }
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* =========================================================
-       TOAST NOTIFICATION
-    ========================================================= */
-    .toast-container {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 9999;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      pointer-events: none;
-      width: calc(100% - 32px);
-      max-width: 460px;
-    }
+    .toast-container { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 9999; display: flex; flex-direction: column; gap: 10px; pointer-events: none; width: calc(100% - 32px); max-width: 460px; }
 
     .toast {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 14px 16px;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-lg);
-      font-size: 13.5px;
-      font-weight: 600;
-      pointer-events: auto;
-      transform: translateY(20px);
-      opacity: 0;
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 14px 16px; border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg); font-size: 13.5px; font-weight: 600;
+      pointer-events: auto; transform: translateY(20px); opacity: 0;
       transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-
     .toast.visible { transform: translateY(0); opacity: 1; }
-    .toast.hide { transform: translateY(20px); opacity: 0; }
+    .toast.hide    { transform: translateY(20px); opacity: 0; }
+    .toast.success { background: var(--success-lt); border: 1.5px solid #A5D6A7; color: var(--success); }
+    .toast.error   { background: var(--error-lt);   border: 1.5px solid #EF9A9A; color: var(--error); }
 
-    .toast.success {
-      background: var(--success-lt);
-      border: 1.5px solid #A5D6A7;
-      color: var(--success);
-    }
-
-    .toast.error {
-      background: var(--error-lt);
-      border: 1.5px solid #EF9A9A;
-      color: var(--error);
-    }
-
-    .toast-icon { font-size: 20px; flex-shrink: 0; }
-    .toast-body { flex: 1; line-height: 1.5; }
+    .toast-icon  { font-size: 20px; flex-shrink: 0; }
+    .toast-body  { flex: 1; line-height: 1.5; }
     .toast-title { font-weight: 800; font-size: 14px; }
-    .toast-msg { font-size: 12.5px; margin-top: 2px; font-weight: 500; }
+    .toast-msg   { font-size: 12.5px; margin-top: 2px; font-weight: 500; }
 
-    /* =========================================================
-       OVERLAY LOADING
-    ========================================================= */
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 999; display: none; align-items: center; justify-content: center; }
     .overlay.visible { display: flex; }
 
-    .overlay-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 32px 28px;
-      text-align: center;
-      max-width: 280px;
-      width: calc(100% - 40px);
-      box-shadow: var(--shadow-lg);
-    }
+    .overlay-card { background: var(--white); border-radius: var(--radius); padding: 32px 28px; text-align: center; max-width: 280px; width: calc(100% - 40px); box-shadow: var(--shadow-lg); }
+    .overlay-spinner { width: 52px; height: 52px; border: 4px solid var(--gray-100); border-top-color: var(--orange); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 16px; }
+    .overlay-title   { font-size: 16px; font-weight: 800; color: var(--gray-800); margin-bottom: 6px; }
+    .overlay-sub     { font-size: 13px; color: var(--gray-400); font-weight: 500; line-height: 1.5; }
+    .overlay-progress     { margin-top: 16px; height: 4px; background: var(--gray-100); border-radius: 2px; overflow: hidden; }
+    .overlay-progress-bar { height: 100%; background: var(--orange); border-radius: 2px; width: 0%; transition: width 0.3s ease; }
 
-    .overlay-spinner {
-      width: 52px;
-      height: 52px;
-      border: 4px solid var(--gray-100);
-      border-top-color: var(--orange);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 16px;
-    }
-
-    .overlay-title {
-      font-size: 16px;
-      font-weight: 800;
-      color: var(--gray-800);
-      margin-bottom: 6px;
-    }
-
-    .overlay-sub {
-      font-size: 13px;
-      color: var(--gray-400);
-      font-weight: 500;
-      line-height: 1.5;
-    }
-
-    .overlay-progress {
-      margin-top: 16px;
-      height: 4px;
-      background: var(--gray-100);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .overlay-progress-bar {
-      height: 100%;
-      background: var(--orange);
-      border-radius: 2px;
-      width: 0%;
-      transition: width 0.3s ease;
-    }
-
-    /* =========================================================
-       FOOTER
-    ========================================================= */
-    .app-footer {
-      text-align: center;
-      padding: 20px 16px 8px;
-      font-size: 11px;
-      color: var(--gray-400);
-      font-weight: 500;
-    }
-
+    .app-footer { text-align: center; padding: 20px 16px 8px; font-size: 11px; color: var(--gray-400); font-weight: 500; }
     .app-footer strong { color: var(--orange); }
 
-    /* =========================================================
-       UTILITY
-    ========================================================= */
-    .info-banner {
-      background: linear-gradient(135deg, #FFF3E0 0%, #FFF8F0 100%);
-      border: 1px solid #FFCC80;
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      margin-bottom: 14px;
-    }
-
+    .info-banner { background: linear-gradient(135deg, #FFF3E0 0%, #FFF8F0 100%); border: 1px solid #FFCC80; border-radius: var(--radius-sm); padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 14px; }
     .info-banner-icon { font-size: 18px; flex-shrink: 0; }
+    .info-banner-text { font-size: 12.5px; color: #E65100; font-weight: 600; line-height: 1.5; }
 
-    .info-banner-text {
-      font-size: 12.5px;
-      color: #E65100;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .char-count {
-      text-align: right;
-      font-size: 11px;
-      color: var(--gray-400);
-      margin-top: 4px;
-      font-weight: 600;
-    }
-
+    .char-count      { text-align: right; font-size: 11px; color: var(--gray-400); margin-top: 4px; font-weight: 600; }
     .char-count.warn { color: var(--error); }
 
-    /* =========================================================
-       RESPONSIVE TWEAKS
-    ========================================================= */
     @media (max-width: 360px) {
-      .counter-btn { width: 36px; }
+      .counter-btn   { width: 36px; }
       .counter-input { font-size: 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ========== HEADER ========== -->
 <header class="app-header">
   <div class="header-inner">
-
-    <!-- Kiri -->
     <div class="header-left">
-
-      <img src="logobps3.png"
-           alt="Logo BPS"
-           class="logo-bps"
-           width="70">
-
-
+      <img src="logobps3.png" alt="Logo BPS" class="logo-bps" width="70">
       <div class="header-text">
         <h1>LAPOR Lapangan SE2026</h1>
-
-            </div>
-
+      </div>
     </div>
-
-    <!-- Kanan -->
     <div class="header-right">
-      <img src="se2026.png" 
-        alt="Logo SE2026"
-        width="50">
+      <img src="se2026.png" alt="Logo SE2026" width="50">
     </div>
-
   </div>
 </header>
-  <!-- ========== MAIN ========== -->
-  <main class="container">
+
+<main class="container">
   <div class="date-strip">
-          📅 <span id="currentDateDisplay"></span>
+    📅 <span id="currentDateDisplay"></span>
   </div>
-    <!-- INFO BANNER -->
-    <div class="info-banner">
-      <span class="info-banner-icon">ℹ️</span>
-      <div class="info-banner-text">
-        Isi form ini setiap hari setelah kegiatan lapangan. Pastikan GPS aktif dan foto sudah terlampir sebelum submit.
-      </div>
-    </div>
 
-    <form id="mainForm" novalidate>
-
-      <!-- ===== IDENTITAS PETUGAS ===== -->
-      <div class="form-card">
-        <div class="card-header">
-          <div class="card-icon">👤</div>
-          <span class="card-title">Identitas Petugas</span>
-        </div>
-        <div class="card-body">
-
-          <!-- NAMA PML/PPL -->
-          <div class="form-group">
-            <label class="form-label" for="namaPetugas">
-              Nama PML / PPL <span class="req">*</span>
-            </label>
-            <select id="namaPetugas" placeholder="Cari dan pilih nama petugas..."></select>
-            <div class="form-error" id="err-nama">⚠ Nama petugas harus dipilih</div>
-          </div>
-
-          <!-- ID SOBAT -->
-          <div class="form-group">
-            <label class="form-label" for="idSobat">
-              ID Sobat <span class="req">*</span>
-            </label>
-            <input
-              type="tel"
-              id="idSobat"
-              class="form-input"
-              placeholder="Masukkan ID Sobat (harus 12 digit)"
-              maxlength="12"
-              minlength="12"
-              inputmode="numeric"
-              pattern="[0-9]*"
-            />
-            <div class="char-count"><span id="idSobatCount">0</span>/12 digit</div>
-            <div class="form-error" id="err-idsobat">⚠ ID Sobat harus diisi (angka saja, harus 12 digit)</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ===== WILAYAH KERJA ===== -->
-      <div class="form-card">
-        <div class="card-header">
-          <div class="card-icon">🗺️</div>
-          <span class="card-title">Wilayah Kerja</span>
-        </div>
-        <div class="card-body">
-
-          <!-- KECAMATAN -->
-          <div class="form-group">
-            <label class="form-label" for="kecamatan">
-              Kecamatan <span class="req">*</span>
-            </label>
-            <select id="kecamatan" placeholder="Cari kecamatan..."></select>
-            <div class="form-error" id="err-kecamatan">⚠ Kecamatan harus dipilih</div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ===== KOORDINAT GPS ===== -->
-      <div class="form-card">
-        <div class="card-header">
-          <div class="card-icon">📍</div>
-          <span class="card-title">Koordinat Lokasi</span>
-        </div>
-        <div class="card-body">
-
-          <div class="gps-panel">
-            <div class="gps-status">
-              <div class="gps-dot loading" id="gpsDot"></div>
-              <div class="gps-status-text" id="gpsStatusText">Mengambil koordinat GPS…</div>
-              <button type="button" class="btn-gps-refresh" id="btnGpsRefresh" onclick="getGPS()">🔄 Refresh</button>
-            </div>
-            <div class="gps-data" id="gpsData">
-              <div class="gps-row">
-                <div class="gps-item">
-                  <div class="gps-item-label">Latitude</div>
-                  <div class="gps-item-value" id="displayLat">–</div>
-                </div>
-                <div class="gps-item">
-                  <div class="gps-item-label">Longitude</div>
-                  <div class="gps-item-value" id="displayLng">–</div>
-                </div>
-              </div>
-              <div class="gps-row">
-                <div class="gps-item" style="flex:none;min-width:100%">
-                  <div class="gps-item-label">Waktu Pengambilan</div>
-                  <div class="gps-item-value" id="displayGeostamp">–</div>
-                </div>
-              </div>
-              <div class="gps-address-box" style="margin-top:8px">
-                <div class="gps-address-label">Alamat Lengkap</div>
-                <div class="gps-address-value" id="displayGeoAddress">Sedang mengambil alamat…</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hidden inputs for GPS data -->
-          <input type="hidden" id="latitude" />
-          <input type="hidden" id="longitude" />
-          <input type="hidden" id="geoAddress" />
-          <input type="hidden" id="geostamp" />
-
-          <div class="form-error" id="err-gps" style="margin-top:8px">⚠ Koordinat GPS belum berhasil diambil</div>
-
-        </div>
-      </div>
-
-      <!-- ===== FOTO KEGIATAN ===== -->
-      <div class="form-card">
-        <div class="card-header">
-          <div class="card-icon">📷</div>
-          <span class="card-title">Foto Kegiatan</span>
-        </div>
-        <div class="card-body">
-
-          <div class="photo-upload-area" id="photoDropArea" onclick="document.getElementById('photoInput').click()">
-            <div class="upload-icon">🖼️</div>
-            <div class="upload-title">Tap untuk ambil foto / unggah</div>
-            <div class="upload-sub">JPG/JPEG · Maks. 5MB · Auto-kompres</div>
-          </div>
-
-          <div class="photo-actions">
-            <button type="button" class="btn-photo" onclick="openCamera()">
-              <span class="icon">📸</span> Kamera
-            </button>
-            <button type="button" class="btn-photo" onclick="openGallery()">
-              <span class="icon">🗂️</span> Galeri
-            </button>
-          </div>
-
-          <input type="file" id="photoInput" accept="image/jpeg,image/jpg,image/*" capture="environment" />
-
-          <div class="photo-preview" id="photoPreview">
-            <img id="previewImg" src="" alt="Preview foto" />
-            <div class="photo-preview-bar">
-              <span class="photo-preview-info" id="photoInfo">–</span>
-              <button type="button" class="btn-photo-remove" onclick="removePhoto()">✕ Hapus</button>
-            </div>
-          </div>
-
-          <div class="form-error" id="err-foto">⚠ Foto kegiatan harus dilampirkan</div>
-
-        </div>
-      </div>
-
-      <!-- ===== REKAPITULASI SUBMIT ===== -->
-      <div class="form-card">
-        <div class="card-header">
-          <div class="card-icon">📋</div>
-          <span class="card-title">Rekapitulasi Submit</span>
-        </div>
-        <div class="card-body">
-
-          <div class="counter-row">
-            <div class="form-group">
-              <label class="form-label" for="submitHariIni">
-                Submit Hari Ini <span class="req">*</span>
-              </label>
-              <div class="counter-input-wrap" id="wrap-submitHariIni">
-                <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',-1)">−</button>
-                <input type="tel" id="submitHariIni" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
-                <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',1)">+</button>
-              </div>
-              <div class="form-hint">📅 Jumlah bangunan usaha/KK yang disubmit hari ini</div>
-              <div class="form-error" id="err-hariini">⚠ Wajib diisi</div>
-            </div>
-
-            <div class="counter-divider"></div>
-
-            <div class="form-group">
-              <label class="form-label" for="submitTotal">
-                Total Semua Submit <span class="req">*</span>
-              </label>
-              <div class="counter-input-wrap" id="wrap-submitTotal">
-                <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',-1)">−</button>
-                <input type="tel" id="submitTotal" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
-                <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',1)">+</button>
-              </div>
-              <div class="form-hint">📊 Akumulasi total semua KK/Usaha submit s.d. hari ini</div>
-              <div class="form-error" id="err-total">⚠ Wajib diisi</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- ===== SUBMIT ===== -->
-      <div class="submit-area">
-        <button type="submit" class="btn-submit" id="btnSubmit">
-          <span class="btn-icon">🚀</span>
-          <span class="btn-label">Kirim Laporan</span>
-          <div class="spinner"></div>
-        </button>
-      </div>
-
-    </form>
-
-    <div class="app-footer">
-      Sensus Ekonomi 2026 &nbsp;·&nbsp; <strong>BPS Kabupaten Majalengka</strong><br/>
-      Sistem Pelaporan Digital Petugas Lapangan
-    </div>
-
-  </main>
-
-  <!-- ========== OVERLAY ========== -->
-  <div class="overlay" id="overlay">
-    <div class="overlay-card">
-      <div class="overlay-spinner"></div>
-      <div class="overlay-title">Mengirim Laporan…</div>
-      <div class="overlay-sub" id="overlayMsg">Mengupload foto ke Google Drive…</div>
-      <div class="overlay-progress">
-        <div class="overlay-progress-bar" id="progressBar"></div>
-      </div>
+  <div class="info-banner">
+    <span class="info-banner-icon">ℹ️</span>
+    <div class="info-banner-text">
+      Isi form ini setiap hari setelah kegiatan lapangan. Pastikan GPS aktif dan foto sudah terlampir sebelum submit.
     </div>
   </div>
 
-  <!-- ========== TOAST ========== -->
-  <div class="toast-container" id="toastContainer"></div>
+  <form id="mainForm" novalidate>
 
-  <!-- ========== JAVASCRIPT ========== -->
-  <script>
-  /* =====================================================
+    <!-- IDENTITAS PETUGAS -->
+    <div class="form-card">
+      <div class="card-header">
+        <div class="card-icon">👤</div>
+        <span class="card-title">Identitas Petugas</span>
+      </div>
+      <div class="card-body">
+
+        <div class="form-group">
+          <label class="form-label" for="namaPetugas">
+            Nama PML / PPL <span class="req">*</span>
+          </label>
+          <select id="namaPetugas" placeholder="Cari dan pilih nama petugas..."></select>
+          <div class="form-error" id="err-nama">⚠ Nama petugas harus dipilih</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="idSobat">
+            ID Sobat <span class="req">*</span>
+          </label>
+          <input type="tel" id="idSobat" class="form-input"
+            placeholder="Masukkan ID Sobat (harus 12 digit)"
+            maxlength="12" minlength="12" inputmode="numeric" pattern="[0-9]*" />
+          <div class="char-count"><span id="idSobatCount">0</span>/12 digit</div>
+          <div class="form-error" id="err-idsobat">⚠ ID Sobat harus diisi (angka saja, harus 12 digit)</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- WILAYAH KERJA -->
+    <div class="form-card">
+      <div class="card-header">
+        <div class="card-icon">🗺️</div>
+        <span class="card-title">Wilayah Kerja</span>
+      </div>
+      <div class="card-body">
+
+        <div class="form-group">
+          <label class="form-label" for="kecamatan">
+            Kecamatan <span class="req">*</span>
+          </label>
+          <select id="kecamatan" placeholder="Cari kecamatan..."></select>
+          <div class="form-error" id="err-kecamatan">⚠ Kecamatan harus dipilih</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- KOORDINAT GPS -->
+    <div class="form-card">
+      <div class="card-header">
+        <div class="card-icon">📍</div>
+        <span class="card-title">Koordinat Lokasi</span>
+      </div>
+      <div class="card-body">
+
+        <div class="gps-panel">
+          <div class="gps-status">
+            <div class="gps-dot loading" id="gpsDot"></div>
+            <div class="gps-status-text" id="gpsStatusText">Mengambil koordinat GPS…</div>
+            <button type="button" class="btn-gps-refresh" id="btnGpsRefresh" onclick="getGPS()">🔄 Refresh</button>
+          </div>
+          <div class="gps-data" id="gpsData">
+            <div class="gps-row">
+              <div class="gps-item">
+                <div class="gps-item-label">Latitude</div>
+                <div class="gps-item-value" id="displayLat">–</div>
+              </div>
+              <div class="gps-item">
+                <div class="gps-item-label">Longitude</div>
+                <div class="gps-item-value" id="displayLng">–</div>
+              </div>
+            </div>
+            <div class="gps-row">
+              <div class="gps-item" style="flex:none;min-width:100%">
+                <div class="gps-item-label">Waktu Pengambilan</div>
+                <div class="gps-item-value" id="displayGeostamp">–</div>
+              </div>
+            </div>
+            <div class="gps-address-box" style="margin-top:8px">
+              <div class="gps-address-label">Alamat Lengkap</div>
+              <div class="gps-address-value" id="displayGeoAddress">Sedang mengambil alamat…</div>
+            </div>
+          </div>
+        </div>
+
+        <input type="hidden" id="latitude" />
+        <input type="hidden" id="longitude" />
+        <input type="hidden" id="geoAddress" />
+        <input type="hidden" id="geostamp" />
+
+        <div class="form-error" id="err-gps" style="margin-top:8px">⚠ Koordinat GPS belum berhasil diambil</div>
+
+      </div>
+    </div>
+
+    <!-- FOTO KEGIATAN -->
+    <div class="form-card">
+      <div class="card-header">
+        <div class="card-icon">📷</div>
+        <span class="card-title">Foto Kegiatan</span>
+      </div>
+      <div class="card-body">
+
+        <div class="photo-upload-area" id="photoDropArea" onclick="document.getElementById('photoInput').click()">
+          <div class="upload-icon">🖼️</div>
+          <div class="upload-title">Tap untuk ambil foto / unggah</div>
+          <div class="upload-sub">JPG/JPEG · Maks. 5MB · Auto-kompres</div>
+        </div>
+
+        <div class="photo-actions">
+          <button type="button" class="btn-photo" onclick="openCamera()">
+            <span class="icon">📸</span> Kamera
+          </button>
+          <button type="button" class="btn-photo" onclick="openGallery()">
+            <span class="icon">🗂️</span> Galeri
+          </button>
+        </div>
+
+        <input type="file" id="photoInput" accept="image/jpeg,image/jpg,image/*" capture="environment" />
+
+        <div class="photo-preview" id="photoPreview">
+          <img id="previewImg" src="" alt="Preview foto" />
+          <div class="photo-preview-bar">
+            <span class="photo-preview-info" id="photoInfo">–</span>
+            <button type="button" class="btn-photo-remove" onclick="removePhoto()">✕ Hapus</button>
+          </div>
+        </div>
+
+        <div class="form-error" id="err-foto">⚠ Foto kegiatan harus dilampirkan</div>
+
+      </div>
+    </div>
+
+    <!-- REKAPITULASI SUBMIT -->
+    <div class="form-card">
+      <div class="card-header">
+        <div class="card-icon">📋</div>
+        <span class="card-title">Rekapitulasi Submit</span>
+      </div>
+      <div class="card-body">
+
+        <div class="counter-row">
+
+          <!-- Submit Hari Ini -->
+          <div class="form-group">
+            <label class="form-label" for="submitHariIni">
+              Submit Hari Ini <span class="req">*</span>
+            </label>
+            <div class="counter-input-wrap" id="wrap-submitHariIni">
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',-1)">−</button>
+              <input type="tel" id="submitHariIni" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitHariIni',1)">+</button>
+            </div>
+            <div class="form-hint">📅 Jumlah KK/USAHA yang disubmit hari ini</div>
+            <div class="form-error" id="err-hariini">⚠ Wajib diisi</div>
+          </div>
+
+          <div class="counter-divider"></div>
+
+          <!-- Total Semua Submit -->
+          <div class="form-group">
+            <label class="form-label" for="submitTotal">
+              Total Semua Submit <span class="req">*</span>
+            </label>
+            <div class="counter-input-wrap" id="wrap-submitTotal">
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',-1)">−</button>
+              <input type="tel" id="submitTotal" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitTotal',1)">+</button>
+            </div>
+            <div class="form-hint">📊 Akumulasi total semua KK/USAHA submit s.d. hari ini</div>
+            <div class="form-error" id="err-total">⚠ Wajib diisi</div>
+          </div>
+
+          <div class="counter-divider"></div>
+
+          <!-- ▶ BARU: Total Usaha Online -->
+          <div class="form-group">
+            <label class="form-label" for="submitOnline">
+              Total Usaha Online <span class="req">*</span>
+            </label>
+            <div class="counter-input-wrap" id="wrap-submitOnline">
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitOnline',-1)">−</button>
+              <input type="tel" id="submitOnline" class="counter-input" value="0" maxlength="3" inputmode="numeric" pattern="[0-9]*" />
+              <button type="button" class="counter-btn" onclick="adjustCounter('submitOnline',1)">+</button>
+            </div>
+            <div class="form-hint">🌐 Usaha online dari total submit s.d. hari ini</div>
+            <div class="form-error" id="err-online">⚠ Wajib diisi dan tidak boleh melebihi Total Semua Submit</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SUBMIT -->
+    <div class="submit-area">
+      <button type="submit" class="btn-submit" id="btnSubmit">
+        <span class="btn-icon">🚀</span>
+        <span class="btn-label">Kirim Laporan</span>
+        <div class="spinner"></div>
+      </button>
+    </div>
+
+  </form>
+
+  <div class="app-footer">
+    Sensus Ekonomi 2026 &nbsp;·&nbsp; <strong>BPS Kabupaten Majalengka</strong><br/>
+    Sistem Pelaporan Digital Petugas Lapangan
+  </div>
+
+</main>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="overlay-card">
+    <div class="overlay-spinner"></div>
+    <div class="overlay-title">Mengirim Laporan…</div>
+    <div class="overlay-sub" id="overlayMsg">Mengupload foto ke Google Drive…</div>
+    <div class="overlay-progress">
+      <div class="overlay-progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+  /* =================================================
      CONFIG
-  ===================================================== */
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycby4XvW_Mevi-zfWbV_ci2zIf6bXfR6cjdXKS5hg59xW-WIWvu4SfLEFO3CUcNhI91cwgw/exec'; // ← Ganti setelah deploy
+  ================================================= */
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycby4XvW_Mevi-zfWbV_ci2zIf6bXfR6cjdXKS5hg59xW-WIWvu4SfLEFO3CUcNhI91cwgw/exec';
 
-  /* =====================================================
+  /* =================================================
      DATA
-  ===================================================== */
+  ================================================= */
   const NAMA_PETUGAS = [
     'Ahmad Fauzi','Siti Nurhaliza','Budi Santoso','Dewi Rahayu',
     'Eka Prasetyo','Fitri Handayani','Galih Permana','Hani Lestari',
@@ -1180,9 +651,9 @@
     'PANYINGKIRAN','KADIPATEN','KERTAJATI','JATITUJUH','LIGUNG','SUMBERJAYA'
   ];
 
-  /* =====================================================
-     INIT DATE DISPLAY
-  ===================================================== */
+  /* =================================================
+     DATE DISPLAY
+  ================================================= */
   (function initDate(){
     const d = new Date();
     const opts = { weekday:'long', year:'numeric', month:'long', day:'numeric' };
@@ -1190,40 +661,34 @@
       d.toLocaleDateString('id-ID', opts);
   })();
 
-  /* =====================================================
+  /* =================================================
      TOM SELECT – NAMA PETUGAS
-  ===================================================== */
+  ================================================= */
   const tsNama = new TomSelect('#namaPetugas',{
     options: NAMA_PETUGAS.map(n=>({value:n,text:n})),
     placeholder: 'Cari dan pilih nama petugas…',
     searchField: ['text'],
     sortField: [{field:'text',direction:'asc'}],
-    maxOptions: 50,
-    create: false,
-    dropdownParent: 'body',
-    maxItems: 1,
+    maxOptions: 50, create: false, dropdownParent: 'body', maxItems: 1,
   });
 
-  /* =====================================================
+  /* =================================================
      TOM SELECT – KECAMATAN
-  ===================================================== */
+  ================================================= */
   const tsKec = new TomSelect('#kecamatan',{
     options: KECAMATAN.map(k=>({value:k,text:k})),
     placeholder: 'Cari kecamatan…',
     searchField: ['text'],
     sortField: [{field:'text',direction:'asc'}],
-    maxOptions: 50,
-    create: false,
-    dropdownParent: 'body',
-    maxItems: 1,
+    maxOptions: 50, create: false, dropdownParent: 'body', maxItems: 1,
     render: {
       option: (data, escape) => `<div class="ts-option-item">${escape(data.text)}</div>`,
     }
   });
 
-  /* =====================================================
+  /* =================================================
      ID SOBAT – numeric only + counter
-  ===================================================== */
+  ================================================= */
   const idInput = document.getElementById('idSobat');
   const idCount = document.getElementById('idSobatCount');
 
@@ -1236,9 +701,9 @@
     this.classList.remove('error');
   });
 
-  /* =====================================================
+  /* =================================================
      GPS
-  ===================================================== */
+  ================================================= */
   let gpsData = { lat:null, lng:null, address:'', stamp:'' };
 
   function getGPS(){
@@ -1270,7 +735,6 @@
         document.getElementById('displayLng').textContent = lng.toFixed(7);
         document.getElementById('displayGeostamp').textContent = stamp;
         document.getElementById('displayGeoAddress').textContent = 'Mengambil alamat lengkap…';
-
         document.getElementById('latitude').value  = lat;
         document.getElementById('longitude').value = lng;
         document.getElementById('geostamp').value  = stamp;
@@ -1279,25 +743,20 @@
         txt.textContent = 'Koordinat berhasil diambil ✓';
         data.classList.add('visible');
 
-        // Reverse geocoding sampai level desa
         fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=id&zoom=18&addressdetails=1`, {
           headers: { 'Accept-Language': 'id' }
         })
           .then(r=>r.json())
           .then(d=>{
             const a = d.address || {};
-            // Susun alamat dari detail → umum sampai level desa/kelurahan
-            const desa       = a.village || a.hamlet || a.neighbourhood || a.suburb || '';
-            const kecamatan  = a.town    || a.city_district || a.county || '';
-            const kabupaten  = a.city    || a.county || a.state_district || '';
-            const provinsi   = a.state   || '';
-            const kodePos    = a.postcode || '';
-
-            // Format: Desa X, Kecamatan Y, Kabupaten Z, Provinsi W KODEPOS
+            const desa      = a.village || a.hamlet || a.neighbourhood || a.suburb || '';
+            const kecamatan = a.town    || a.city_district || a.county || '';
+            const kabupaten = a.city    || a.county || a.state_district || '';
+            const provinsi  = a.state   || '';
+            const kodePos   = a.postcode || '';
             const parts = [desa, kecamatan, kabupaten, provinsi].filter(Boolean);
             const addrFormatted = parts.join(', ') + (kodePos ? ' ' + kodePos : '');
             const addr = addrFormatted || d.display_name || `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
-
             gpsData.address = addr;
             document.getElementById('displayGeoAddress').textContent = addr;
             document.getElementById('geoAddress').value = addr;
@@ -1313,23 +772,18 @@
       },
       err => {
         dot.className = 'gps-dot error';
-        const msgs = {
-          1:'Akses GPS ditolak. Aktifkan izin lokasi.',
-          2:'Sinyal GPS tidak tersedia.',
-          3:'Permintaan GPS timeout.'
-        };
+        const msgs = { 1:'Akses GPS ditolak. Aktifkan izin lokasi.', 2:'Sinyal GPS tidak tersedia.', 3:'Permintaan GPS timeout.' };
         txt.textContent = msgs[err.code] || 'Gagal mengambil GPS';
       },
       { enableHighAccuracy:true, timeout:15000, maximumAge:0 }
     );
   }
 
-  // Auto-request GPS on load
   window.addEventListener('load', ()=> setTimeout(getGPS, 600));
 
-  /* =====================================================
+  /* =================================================
      PHOTO UPLOAD
-  ===================================================== */
+  ================================================= */
   let photoBase64 = null;
   let photoFileName = '';
 
@@ -1348,10 +802,7 @@
   document.getElementById('photoInput').addEventListener('change', function(){
     const file = this.files[0];
     if(!file) return;
-    if(file.size > 5*1024*1024){
-      showToast('error','File Terlalu Besar','Ukuran foto maks. 5MB');
-      return;
-    }
+    if(file.size > 5*1024*1024){ showToast('error','File Terlalu Besar','Ukuran foto maks. 5MB'); return; }
     compressAndPreview(file);
   });
 
@@ -1371,7 +822,6 @@
         const compressed = canvas.toDataURL('image/jpeg',0.80);
         photoBase64 = compressed.split(',')[1];
         photoFileName = file.name;
-
         document.getElementById('previewImg').src = compressed;
         document.getElementById('photoPreview').classList.add('visible');
         const sizekb = Math.round(compressed.length*0.75/1024);
@@ -1390,27 +840,39 @@
     document.getElementById('previewImg').src = '';
   }
 
-  /* =====================================================
+  /* =================================================
      COUNTER INPUTS
-  ===================================================== */
+  ================================================= */
   function adjustCounter(id, delta){
     const inp = document.getElementById(id);
-    let val = parseInt(inp.value)||0;
-    val = Math.max(0, Math.min(999, val+delta));
+    let val = parseInt(inp.value) || 0;
+    val = Math.max(0, Math.min(999, val + delta));
+
+    // ▶ Khusus submitOnline: clamp agar tidak melebihi submitTotal
+    if (id === 'submitOnline') {
+      const maxVal = parseInt(document.getElementById('submitTotal').value) || 0;
+      val = Math.min(val, maxVal);
+    }
+
     inp.value = val;
-    clearError('err-'+(id==='submitHariIni'?'hariini':'total'));
-    document.getElementById('wrap-'+id).classList.remove('error');
+
+    // clear error mapping
+    const errMap = { submitHariIni:'err-hariini', submitTotal:'err-total', submitOnline:'err-online' };
+    if (errMap[id]) {
+      clearError(errMap[id]);
+      document.getElementById('wrap-' + id).classList.remove('error');
+    }
   }
 
-  ['submitHariIni','submitTotal'].forEach(id=>{
+  ['submitHariIni','submitTotal','submitOnline'].forEach(id=>{
     document.getElementById(id).addEventListener('input', function(){
       this.value = this.value.replace(/\D/g,'').slice(0,3);
     });
   });
 
-  /* =====================================================
+  /* =================================================
      VALIDATION
-  ===================================================== */
+  ================================================= */
   function showError(id){ document.getElementById(id).classList.add('visible'); }
   function clearError(id){ document.getElementById(id).classList.remove('visible'); }
 
@@ -1419,97 +881,87 @@
 
     // Nama
     if(!tsNama.getValue()){
-      showError('err-nama');
-      tsNama.control.closest('.ts-wrapper').classList.add('error');
-      ok = false;
+      showError('err-nama'); tsNama.control.closest('.ts-wrapper').classList.add('error'); ok = false;
     } else {
-      clearError('err-nama');
-      tsNama.control.closest('.ts-wrapper').classList.remove('error');
+      clearError('err-nama'); tsNama.control.closest('.ts-wrapper').classList.remove('error');
     }
 
     // ID Sobat
     const idVal = document.getElementById('idSobat').value.trim();
     if(!/^\d{12}$/.test(idVal)){
-      showError('err-idsobat');
-      document.getElementById('idSobat').classList.add('error');
-      ok = false;
+      showError('err-idsobat'); document.getElementById('idSobat').classList.add('error'); ok = false;
     } else {
-      clearError('err-idsobat');
-      document.getElementById('idSobat').classList.remove('error');
+      clearError('err-idsobat'); document.getElementById('idSobat').classList.remove('error');
     }
 
     // Kecamatan
     if(!tsKec.getValue()){
-      showError('err-kecamatan');
-      tsKec.control.closest('.ts-wrapper').classList.add('error');
-      ok = false;
+      showError('err-kecamatan'); tsKec.control.closest('.ts-wrapper').classList.add('error'); ok = false;
     } else {
-      clearError('err-kecamatan');
-      tsKec.control.closest('.ts-wrapper').classList.remove('error');
+      clearError('err-kecamatan'); tsKec.control.closest('.ts-wrapper').classList.remove('error');
     }
 
     // GPS
     if(!gpsData.lat || !gpsData.lng){
-      showError('err-gps');
-      ok = false;
+      showError('err-gps'); ok = false;
     } else {
       clearError('err-gps');
     }
 
     // Foto
     if(!photoBase64){
-      showError('err-foto');
-      ok = false;
+      showError('err-foto'); ok = false;
     } else {
       clearError('err-foto');
     }
 
     // Submit hari ini
     const hariIni = document.getElementById('submitHariIni').value;
-    if(hariIni==='' || hariIni===null){
-      showError('err-hariini');
-      document.getElementById('wrap-submitHariIni').classList.add('error');
-      ok = false;
+    if(hariIni === '' || hariIni === null){
+      showError('err-hariini'); document.getElementById('wrap-submitHariIni').classList.add('error'); ok = false;
     } else {
-      clearError('err-hariini');
-      document.getElementById('wrap-submitHariIni').classList.remove('error');
+      clearError('err-hariini'); document.getElementById('wrap-submitHariIni').classList.remove('error');
     }
 
-    // Total
+    // Total semua submit
     const total = document.getElementById('submitTotal').value;
-    if(total==='' || total===null){
-      showError('err-total');
-      document.getElementById('wrap-submitTotal').classList.add('error');
-      ok = false;
+    if(total === '' || total === null){
+      showError('err-total'); document.getElementById('wrap-submitTotal').classList.add('error'); ok = false;
     } else {
-      clearError('err-total');
-      document.getElementById('wrap-submitTotal').classList.remove('error');
+      clearError('err-total'); document.getElementById('wrap-submitTotal').classList.remove('error');
+    }
+
+    // ▶ Total Usaha Online
+    const online   = document.getElementById('submitOnline').value;
+    const totalVal = parseInt(document.getElementById('submitTotal').value) || 0;
+    if(online === '' || online === null){
+      showError('err-online'); document.getElementById('wrap-submitOnline').classList.add('error'); ok = false;
+    } else if(parseInt(online) > totalVal){
+      showError('err-online'); document.getElementById('wrap-submitOnline').classList.add('error'); ok = false;
+    } else {
+      clearError('err-online'); document.getElementById('wrap-submitOnline').classList.remove('error');
     }
 
     return ok;
   }
 
-  /* =====================================================
-     OVERLAY PROGRESS
-  ===================================================== */
-  function showOverlay(msg){ 
+  /* =================================================
+     OVERLAY
+  ================================================= */
+  function showOverlay(msg){
     document.getElementById('overlay').classList.add('visible');
     document.getElementById('overlayMsg').textContent = msg;
     document.getElementById('progressBar').style.width = '0%';
   }
-
-  function updateOverlay(msg, pct){ 
+  function updateOverlay(msg, pct){
     document.getElementById('overlayMsg').textContent = msg;
-    document.getElementById('progressBar').style.width = pct+'%';
+    document.getElementById('progressBar').style.width = pct + '%';
   }
+  function hideOverlay(){ document.getElementById('overlay').classList.remove('visible'); }
 
-  function hideOverlay(){ 
-    document.getElementById('overlay').classList.remove('visible');
-  }
-
-  /* =====================================================
+  /* =================================================
      TOAST
-  ===================================================== */
+  ================================================= */
   function showToast(type, title, msg){
     const tc = document.getElementById('toastContainer');
     const div = document.createElement('div');
@@ -1522,15 +974,12 @@
       </div>`;
     tc.appendChild(div);
     requestAnimationFrame(()=>{ setTimeout(()=>div.classList.add('visible'),10); });
-    setTimeout(()=>{
-      div.classList.add('hide');
-      setTimeout(()=>div.remove(), 400);
-    }, 5000);
+    setTimeout(()=>{ div.classList.add('hide'); setTimeout(()=>div.remove(), 400); }, 5000);
   }
 
-  /* =====================================================
+  /* =================================================
      BUILD PHOTO FILENAME
-  ===================================================== */
+  ================================================= */
   function buildPhotoName(){
     const d = new Date();
     const pad = n=>String(n).padStart(2,'0');
@@ -1541,9 +990,9 @@
     return `${date}_${kec}_${id}_${nama}.jpg`;
   }
 
-  /* =====================================================
+  /* =================================================
      SUBMIT
-  ===================================================== */
+  ================================================= */
   document.getElementById('mainForm').addEventListener('submit', async function(e){
     e.preventDefault();
     if(!validateForm()) return;
@@ -1556,17 +1005,18 @@
     updateOverlay('Mengompres foto…', 15);
 
     const payload = {
-      nama      : tsNama.getValue(),
-      idSobat   : document.getElementById('idSobat').value.trim(),
-      kecamatan : tsKec.getValue(),
-      latitude  : gpsData.lat,
-      longitude : gpsData.lng,
-      geoAddress: gpsData.address,
-      geostamp  : gpsData.stamp,
+      nama          : tsNama.getValue(),
+      idSobat       : document.getElementById('idSobat').value.trim(),
+      kecamatan     : tsKec.getValue(),
+      latitude      : gpsData.lat,
+      longitude     : gpsData.lng,
+      geoAddress    : gpsData.address,
+      geostamp      : gpsData.stamp,
       submitHariIni : document.getElementById('submitHariIni').value,
       submitTotal   : document.getElementById('submitTotal').value,
-      fotoBase64: photoBase64,
-      fotoNama  : buildPhotoName(),
+      submitOnline  : document.getElementById('submitOnline').value,   // ▶ BARU
+      fotoBase64    : photoBase64,
+      fotoNama      : buildPhotoName(),
     };
 
     updateOverlay('Mengupload foto ke Google Drive…', 35);
@@ -1574,15 +1024,7 @@
     try {
       updateOverlay('Mengirim data ke server…', 60);
 
-      // ── Strategi pengiriman ke GAS Web App ────────────────────────────
-      // Foto base64 terlalu besar untuk query string (URL limit ~2KB).
-      // Solusi: pisahkan - metadata via GET param, foto via POST body terpisah.
-      //
-      // CARA YANG DIPAKAI: POST dengan Content-Type text/plain
-      // GAS membaca body mentah via e.postData.contents (tidak trigger preflight
-      // karena text/plain adalah "simple request" per CORS spec).
       const jsonStr = JSON.stringify(payload);
-
       const res = await fetch(GAS_URL, {
         method  : 'POST',
         body    : jsonStr,
@@ -1611,8 +1053,7 @@
       btn.disabled = false;
 
       if(json.status === 'success'){
-        showToast('success','Laporan Terkirim!',
-          `Data ${payload.nama} berhasil disimpan. 🎉`);
+        showToast('success','Laporan Terkirim!', `Data ${payload.nama} berhasil disimpan. 🎉`);
         resetForm();
       } else {
         showToast('error','Gagal Mengirim', json.message||'Terjadi kesalahan server.');
@@ -1622,35 +1063,34 @@
       hideOverlay();
       btn.classList.remove('loading');
       btn.disabled = false;
-      showToast('error','Koneksi Gagal',
-        'Periksa koneksi internet Anda dan coba lagi.');
+      showToast('error','Koneksi Gagal', 'Periksa koneksi internet Anda dan coba lagi.');
       console.error(err);
     }
   });
 
-  /* =====================================================
+  /* =================================================
      RESET FORM
-  ===================================================== */
+  ================================================= */
   function resetForm(){
     tsNama.clear();
     tsKec.clear();
     document.getElementById('idSobat').value = '';
     document.getElementById('idSobatCount').textContent = '0';
     document.getElementById('submitHariIni').value = '0';
-    document.getElementById('submitTotal').value = '0';
+    document.getElementById('submitTotal').value   = '0';
+    document.getElementById('submitOnline').value  = '0';   // ▶ BARU
     removePhoto();
     gpsData = { lat:null, lng:null, address:'', stamp:'' };
-    document.getElementById('latitude').value = '';
+    document.getElementById('latitude').value  = '';
     document.getElementById('longitude').value = '';
     document.getElementById('geoAddress').value = '';
-    document.getElementById('geostamp').value = '';
+    document.getElementById('geostamp').value  = '';
     document.getElementById('gpsData').classList.remove('visible');
     document.getElementById('gpsDot').className = 'gps-dot';
     document.getElementById('gpsStatusText').textContent = 'Koordinat belum diambil';
-    // scroll to top
     window.scrollTo({top:0, behavior:'smooth'});
   }
-  </script>
+</script>
 
 </body>
 </html>
